@@ -32,7 +32,8 @@
     <!--[if lt IE 9]>
         <script async src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-
+<link rel="stylesheet" href="http://yandex.st/highlightjs/7.3/styles/default.min.css">
+<script src="http://yandex.st/highlightjs/7.3/highlight.min.js"></script>
     <!-- Styles -->
     <link  rel="stylesheet" href="/vendor/twitter-bootstrap/css/bootstrap.css" /><link  rel="stylesheet" href="/vendor/twitter-bootstrap/css/bootstrap-responsive.css" /><link  rel="stylesheet" href="/styles/style.css" />
 </head>
@@ -60,8 +61,103 @@
         <section id="content" class="content">
             <article id="post" class="post">
     <h1>This is a Blog Post</h1>
-    <div class="post-content"><p>This is a <strong>blog post</strong></p>
-<p>Hello~~</p>
+    <div class="post-content"><h1>marked</h1>
+<p>A full-featured markdown parser and compiler, written in javascript.
+Built for speed.</p>
+<h2>Benchmarks</h2>
+<p>node v0.4.x</p>
+<pre class="highlighted"><code class="bash">$ node test --bench
+marked completed <span class="keyword">in</span> 12071ms.
+showdown (reuse converter) completed <span class="keyword">in</span> 27387ms.
+showdown (new converter) completed <span class="keyword">in</span> 75617ms.
+markdown-js completed <span class="keyword">in</span> 70069ms.</code></pre>
+<p>node v0.6.x</p>
+<pre class="highlighted"><code class="bash">$ node test --bench
+marked completed <span class="keyword">in</span> 6448ms.
+marked (gfm) completed <span class="keyword">in</span> 7357ms.
+marked (pedantic) completed <span class="keyword">in</span> 6092ms.
+discount completed <span class="keyword">in</span> 7314ms.
+showdown (reuse converter) completed <span class="keyword">in</span> 16018ms.
+showdown (new converter) completed <span class="keyword">in</span> 18234ms.
+markdown-js completed <span class="keyword">in</span> 24270ms.</code></pre>
+<p><strong>Marked is now faster than Discount, which is written in C.</strong></p>
+<p>For those feeling skeptical: These benchmarks run the entire markdown test suite
+1000 times. The test suite tests every feature. It doesn&#39;t cater to specific
+aspects.</p>
+<h2>Install</h2>
+<pre class="highlighted"><code class="bash">$ npm install marked</code></pre>
+<h2>Another Javascript Markdown Parser</h2>
+<p>The point of marked was to create a markdown compiler where it was possible to
+frequently parse huge chunks of markdown without having to worry about
+caching the compiled output somehow...or blocking for an unnecesarily long time.</p>
+<p>marked is very concise and still implements all markdown features. It is also
+now fully compatible with the client-side.</p>
+<p>marked more or less passes the official markdown test suite in its
+entirety. This is important because a surprising number of markdown compilers
+cannot pass more than a few tests. It was very difficult to get marked as
+compliant as it is. It could have cut corners in several areas for the sake
+of performance, but did not in order to be exactly what you expect in terms
+of a markdown rendering. In fact, this is why marked could be considered at a
+disadvantage in the benchmarks above.</p>
+<p>Along with implementing every markdown feature, marked also implements
+<a href="http://github.github.com/github-flavored-markdown/">GFM features</a>.</p>
+<h2>Options</h2>
+<p>marked has a few different switches which change behavior.</p>
+<ul>
+<li><strong>pedantic</strong>: Conform to obscure parts of <code>markdown.pl</code> as much as possible.
+Don&#39;t fix any of the original markdown bugs or poor behavior.</li>
+<li><strong>gfm</strong>: Enable github flavored markdown (enabled by default).</li>
+<li><strong>sanitize</strong>: Sanitize the output. Ignore any HTML that has been input.</li>
+<li><strong>highlight</strong>: A callback to highlight code blocks.</li>
+<li><strong>tables</strong>: Enable GFM tables. This is enabled by default. (Requires the
+<code>gfm</code> option in order to be enabled).</li>
+<li><strong>breaks</strong>: Enable GFM line breaks. Disabled by default.</li>
+<li><strong>smartLists</strong>: Use smarter list behavior than the original markdown.
+Disabled by default. May eventually be default with the old behavior
+moved into <code>pedantic</code>.</li>
+<li><strong>langPrefix</strong>: Set the prefix for code block classes. Defaults to <code>lang-</code>.</li>
+</ul>
+<h2>Usage</h2>
+<pre class="highlighted"><code class="javascript"><span class="comment">// Set default options</span>
+marked.setOptions({
+  gfm: <span class="literal">true</span>,
+  tables: <span class="literal">true</span>,
+  breaks: <span class="literal">false</span>,
+  pedantic: <span class="literal">false</span>,
+  sanitize: <span class="literal">true</span>,
+  smartLists: <span class="literal">true</span>,
+  langPrefix: <span class="string">'language-'</span>,
+  highlight: <span class="keyword">function</span>(code, lang) {
+    <span class="keyword">if</span> (lang === <span class="string">'js'</span>) {
+      <span class="keyword">return</span> highlighter.javascript(code);
+    }
+    <span class="keyword">return</span> code;
+  }
+});
+console.log(marked(<span class="string">'i am using __markdown__.'</span>));</code></pre>
+<p>You also have direct access to the lexer and parser if you so desire.</p>
+<pre class="highlighted"><code class="javascript"><span class="keyword">var</span> tokens = marked.lexer(text, options);
+console.log(marked.parser(tokens));</code></pre>
+<pre class="highlighted"><code class="javascript"><span class="keyword">var</span> lexer = <span class="keyword">new</span> marked.Lexer(options);
+<span class="keyword">var</span> tokens = lexer.lex(text);
+console.log(tokens);
+console.log(lexer.rules);</code></pre>
+<pre class="highlighted"><code class="bash">$ node
+&gt; require(<span class="string">'marked'</span>).lexer(<span class="string">'&gt; i am using marked.'</span>)
+<span class="test_condition">[ { type: <span class="string">'blockquote_start'</span> },
+  { type: <span class="string">'paragraph'</span>,
+    text: <span class="string">'i am using marked.'</span> },
+  { type: <span class="string">'blockquote_end'</span> },
+  links: {} ]</span></code></pre>
+<h2>CLI</h2>
+<pre class="highlighted"><code class="bash">$ marked -o hello.html
+hello world
+^D
+$ cat hello.html
+&lt;p&gt;hello world&lt;/p&gt;</code></pre>
+<h2>License</h2>
+<p>Copyright (c) 2011-2013, Christopher Jeffrey. (MIT License)</p>
+<p>See LICENSE for more info.</p>
 </div>
 </article>
 
@@ -72,7 +168,7 @@
         <footer>
             <p>&copy; ijse 2012</p>
             <p style="float:right;">
-                上次更新:2013-02-02T18:26:51.009Z
+                上次更新:2013-02-03T01:45:49.496Z
             </p>
         </footer>
     </div><!-- /container -->
