@@ -1,0 +1,65 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   '--save',
+1 verbose cli   'docpad-plugin-ejs' ]
+2 info using npm@1.2.2
+3 info using node@v0.8.18
+4 verbose node symlink C:\Program Files\nodejs\\node.exe
+5 verbose read json D:\workspace\syte.docpad\package.json
+6 verbose read json D:\workspace\syte.docpad\node_modules\docpad\package.json
+7 verbose read json D:\workspace\syte.docpad\node_modules\docpad-plugin-cachr\package.json
+8 verbose read json D:\workspace\syte.docpad\node_modules\docpad-plugin-cleanurls\package.json
+9 verbose read json D:\workspace\syte.docpad\node_modules\docpad-plugin-coffeekup\package.json
+10 verbose read json D:\workspace\syte.docpad\node_modules\docpad-plugin-coffeescript\package.json
+11 verbose read json D:\workspace\syte.docpad\node_modules\docpad-plugin-eco\package.json
+12 verbose read json D:\workspace\syte.docpad\node_modules\docpad-plugin-feedr\package.json
+13 verbose read json D:\workspace\syte.docpad\node_modules\docpad-plugin-handlebars\package.json
+14 verbose read json D:\workspace\syte.docpad\node_modules\docpad-plugin-less\package.json
+15 verbose read json D:\workspace\syte.docpad\node_modules\docpad-plugin-livereload\package.json
+16 verbose read json D:\workspace\syte.docpad\node_modules\docpad-plugin-marked\package.json
+17 verbose read json D:\workspace\syte.docpad\node_modules\docpad-plugin-partials\package.json
+18 verbose read json D:\workspace\syte.docpad\node_modules\docpad-plugin-text\package.json
+19 verbose read json D:\workspace\syte.docpad\node_modules\feedr\package.json
+20 verbose read json D:\workspace\syte.docpad\node_modules\moment\package.json
+21 verbose from cache D:\workspace\syte.docpad\package.json
+22 verbose readDependencies using package.json deps
+23 verbose cache add [ 'docpad-plugin-ejs', null ]
+24 verbose cache add name=undefined spec="docpad-plugin-ejs" args=["docpad-plugin-ejs",null]
+25 verbose parsed url { pathname: 'docpad-plugin-ejs',
+25 verbose parsed url   path: 'docpad-plugin-ejs',
+25 verbose parsed url   href: 'docpad-plugin-ejs' }
+26 silly lockFile e1183ca1-docpad-plugin-ejs docpad-plugin-ejs
+27 verbose lock docpad-plugin-ejs C:\Users\Yi\AppData\Roaming\npm-cache\e1183ca1-docpad-plugin-ejs.lock
+28 silly lockFile e1183ca1-docpad-plugin-ejs docpad-plugin-ejs
+29 verbose addNamed [ 'docpad-plugin-ejs', '' ]
+30 verbose addNamed [ null, '' ]
+31 silly lockFile 1f5a2091-docpad-plugin-ejs docpad-plugin-ejs@
+32 verbose lock docpad-plugin-ejs@ C:\Users\Yi\AppData\Roaming\npm-cache\1f5a2091-docpad-plugin-ejs.lock
+33 silly addNameRange { name: 'docpad-plugin-ejs', range: '', hasData: false }
+34 verbose url raw docpad-plugin-ejs
+35 verbose url resolving [ 'https://registry.npmjs.org/', './docpad-plugin-ejs' ]
+36 verbose url resolved https://registry.npmjs.org/docpad-plugin-ejs
+37 info trying registry request attempt 1 at 23:35:04
+38 http GET https://registry.npmjs.org/docpad-plugin-ejs
+39 http 404 https://registry.npmjs.org/docpad-plugin-ejs
+40 silly registry.get cb [ 404,
+40 silly registry.get   { server: 'CouchDB/1.2.1 (Erlang OTP/R15B)',
+40 silly registry.get     date: 'Mon, 11 Feb 2013 15:33:34 GMT',
+40 silly registry.get     'content-type': 'application/json',
+40 silly registry.get     'content-length': '52',
+40 silly registry.get     'cache-control': 'must-revalidate' } ]
+41 silly lockFile 1f5a2091-docpad-plugin-ejs docpad-plugin-ejs@
+42 error 404 'docpad-plugin-ejs' is not in the npm registry.
+42 error 404 You should bug the author to publish it
+42 error 404
+42 error 404 Note that you can also install from a
+42 error 404 tarball, folder, or http url, or git url.
+43 error System Windows_NT 6.2.9200
+44 error command "C:\\Program Files\\nodejs\\\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "--save" "docpad-plugin-ejs"
+45 error cwd D:\workspace\syte.docpad
+46 error node -v v0.8.18
+47 error npm -v 1.2.2
+48 error code E404
+49 verbose exit [ 1, true ]

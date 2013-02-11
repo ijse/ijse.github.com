@@ -1,0 +1,4 @@
+<!-- Analytic Accounts -->
+<% for analyticsID,analyticsAccount of @site.analytics: %>
+	<%- @partial("analytics/#{analyticsID}.html.eco", {account:@analyticsAccount}) %>
+<% end %>

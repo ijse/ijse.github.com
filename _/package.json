@@ -1,43 +1,59 @@
 {
-  "name": "twitter-bootstrap.docpad",
-  "version": "0.9.0",
-  "description": "Twitter Bootstrap skeleton for DocPad. Simple and flexible HTML, CSS, and Javascript for popular user interface components and interactions.",
-  "homepage": "https://github.com/bevry/twitter-bootstrap.docpad",
+  "name": "syte.docpad",
+  "version": "0.8.1",
+  "description": "A simple pre-made personal website with blogging and social integrations.",
+  "homepage": "https://github.com/docpad/syte.docpad",
   "keywords": [
     "docpad-skeleton",
     "docpad",
     "website",
-    "bootstrap",
-    "twitter bootstrap"
+    "syte",
+    "blog",
+    "blogging",
+    "social",
+    "bitbucket",
+    "dribble",
+    "foursquare",
+    "github",
+    "instagram",
+    "lastfm",
+    "soundcloud",
+    "twitter"
   ],
   "author": "Bevry Pty Ltd <us@bevry.me> (http://bevry.me)",
   "maintainers": [
-    "Benjamin Lupton <b@lupton.cc> (http://balupton.com)"
+    "Benjamin Lupton <b@lupton.cc> (https://github.com/balupton)"
   ],
   "contributors": [
-    "Benjamin Lupton <b@lupton.cc> (http://balupton.com)"
+    "Benjamin Lupton <b@lupton.cc> (https://github.com/balupton)",
+    "Rodrigo Neri <@rigoneri> (https://github.com/rigoneri)"
   ],
   "bugs": {
-    "url": "https://github.com/docpad/twitter-bootstrap.docpad/issues"
+    "url": "https://github.com/docpad/syte.docpad/issues"
   },
   "repository": {
     "type": "git",
-    "url": "http://github.com/docpad/twitter-bootstrap.docpad.git"
+    "url": "http://github.com/docpad/syte.docpad.git"
   },
   "engines": {
     "node": "0.8.x",
     "npm": "1.1.x"
   },
   "dependencies": {
+    "moment": "1.7.x",
     "docpad": "6.x",
+    "docpad-plugin-cachr": "2.x",
     "docpad-plugin-cleanurls": "2.x",
     "docpad-plugin-coffeescript": "2.x",
+    "docpad-plugin-coffeekup": "2.x",
     "docpad-plugin-eco": "2.x",
+    "docpad-plugin-feedr": "2.x",
+    "docpad-plugin-handlebars": "2.x",
+    "docpad-plugin-js2coffee": "2.x",
     "docpad-plugin-less": "2.x",
-    "docpad-plugin-marked": "2.x",
+    "docpad-plugin-robotskirt": "2.x",
     "docpad-plugin-partials": "2.x",
-    "docpad-plugin-text": "2.x",
-    "docpad-plugin-highlightjs": "~2.1.1"
+    "docpad-plugin-text": "2.x"
   },
   "devDependencies": {
     "docpad-plugin-livereload": "2.x"

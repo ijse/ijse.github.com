@@ -1,0 +1,17 @@
+---
+title: Home
+layout: default
+pageOrder: 0
+target: _self
+tags: ['page']
+---
+
+
+<%# @partial('content/list.html.eco', @, {posts:@getCollection("posts").toJSON() } ) %>
+
+<section class="main-section blog-section" id="blog-posts">
+	<% for post in @getCollection("posts").toJSON(): %>
+		<%- @partial("post/#{post.type}-list.html.hb", @, post) %>
+	<% end %>
+</section>
+

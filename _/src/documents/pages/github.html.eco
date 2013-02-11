@@ -1,0 +1,11 @@
+---
+title: GitHub
+
+socialID: github
+socialURL: http://github.com/ijse
+pageOrder: 1
+
+tags: ['page']
+---
+
+<%- @partial("social/github.html.hb", @, @getSocialFeeds('github')) %>

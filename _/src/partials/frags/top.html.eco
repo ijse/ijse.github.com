@@ -1,0 +1,45 @@
+<header class="main-header">
+	<hgroup>
+		<div class="picture">
+			<a href="/" rel="home"></a>
+		</div>
+		<h1><%- @site.heading %></h1>
+		<h2><%- @site.subheading %></h2>
+	</hgroup>
+	<nav>
+		<ul class="main-nav">
+
+			<!-- <li><a href="/" id="home-link">Home</a></li> -->
+			<% for document in @getCollection('pages').toJSON(): %>
+				<% if document.socialID:%>
+					<% [socialID, socialAccount] = [document.socialID, @site.social[document.socialID] ] %>
+					<li>
+						<a href="<%= document.socialURL %>"
+							class="social-link"
+							data-socialid="<%= document.socialID %>"
+							target="_blank">
+							<%= document.title %>
+							<% unless socialAccount.profile: %>
+								<span class="icon-link"/>
+							<% end %>
+						</a>
+					</li>
+				<% else: %>
+					<li>
+						<a href="<%=document.url %>" class="page-link" 
+						target="<%=document.target or '_blank' %>">
+							<%=document.title %>
+						</a>
+					</li>
+				<% end %>
+			<% end %>
+			<li>
+				<a href="mailto:<%= @site.email %>?subject=Hello" id="contact-link">Contact <span class="icon-link"/></a>
+			</li>
+
+		</ul>
+	</nav>
+	<% if @site.sourceUrl: %>
+		<a href="<%= @site.sourceUrl %>" class="fork-me">Fork me on Github</a>
+	<% end %>
+</header>

@@ -1,23 +1,16 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<%- @partial("frags/head.html.eco", @) %>
+</head>
+<body>
+	<%- @partial("frags/top.html.eco", @) %>
 
-<article id="post" class="post">
-	<h1><%= @document.title %></h1>
-	<div class="post-content"><%- @content %></div>
-</article>
-
-<footer>
-	<% if  @document.relatedDocuments and @document.relatedDocuments.length: %>
-	<section id="related">
-		<h3>Related Posts</h3>
-		<nav class="linklist">
-			<% for document in @document.relatedDocuments: %>
-				<li><span><%= document.date.toShortDateString() %></span>
-				&raquo;
-				<a href="<%= document.url %>"><%= document.title %></a></li>
-			<% end %>
-		</nav>
+	<!-- Page Content -->
+	<section class="main-section blog-section" id="blog-posts">
+		<%- @partial("post/#{@document.type}.html.hb", @, @document) %>
 	</section>
-	<% end %>
-</footer>
+
+	<%- @partial("frags/foot.html.eco", @) %>
+</body>
+</html>

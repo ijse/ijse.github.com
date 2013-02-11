@@ -1,0 +1,21 @@
+<div class="mobile-nav">
+	<span class="nav-btn" id="mobile-nav-btn">
+		<span class="nav-btn-bar"></span>
+		<span class="nav-btn-bar"></span>
+		<span class="nav-btn-bar"></span>
+	</span>
+	<h3><a href="/"><%= @site.url %></a></h3>
+</div>
+
+<%- @partial("frags/analytic.html.eco", @) %>
+
+<!-- Scripts -->
+<%- @getBlock('scripts').add(["/vendor/jquery.js","/vendor/log.js","/vendor/modernizr.js","/scripts/script.js"]).toHTML() %>
+
+<!-- Social Profiles -->
+<div class="modal-backdrop fade" style="display:none"></div>
+<% for document in @getCollection('pages').toJSON(): %>
+	<% if document.socialID:%>
+		<%- @partial("social/#{document.socialID}.html.hb", @, @getSocialFeeds(document.socialID)) %>
+	<% end %>
+<% end %>

@@ -1,25 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <head>
     <!-- Meta -->
     <meta charset="utf-8" />
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-
-    <!-- Use the .htaccess and remove these lines to avoid edge case issues.
-       More info: h5bp.com/i/378 -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-
-    <!-- Our site title and description -->
-    <title>Home | ijse stu</title>
-    <meta name="description" content="ijse blog" />
-    <meta name="keywords" content="javascript, html, css, java, Python" />
-    <meta name="author" content="ijse" />
-
-    <!-- Output DocPad produced meta elements -->
-    <meta http-equiv="X-Powered-By" content="DocPad"/>
 
     <!-- Mobile viewport optimized: h5bp.com/viewport -->
     <meta name="viewport" content="width=device-width" />
+
+    <!-- Our site title and description -->
+    <title>Home | IJSE STU</title>
+    <meta name="description" content="When your website appears in search results in say Google, the text here will be shown underneath your website's title." />
+    <meta name="keywords" content="ijse, javascript, node.js" />
+    <meta name="author" content="ijse" />
+
+    <!-- DocPad Meta Information -->
+    <meta http-equiv="X-Powered-By" content="DocPad"/>
+
 
     <!-- Icons -->
     <link rel="shortcut icon" href="ico/favicon.ico">
@@ -28,75 +27,127 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
 
+
     <!-- Shims: IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
         <script async src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-<link rel="stylesheet" href="http://yandex.st/highlightjs/7.3/styles/default.min.css">
-<script src="http://yandex.st/highlightjs/7.3/highlight.min.js"></script>
+
+
     <!-- Styles -->
-    <link  rel="stylesheet" href="/vendor/twitter-bootstrap/css/bootstrap.css" /><link  rel="stylesheet" href="/vendor/twitter-bootstrap/css/bootstrap-responsive.css" /><link  rel="stylesheet" href="/styles/style.css" />
+    <link  rel="stylesheet" href="/styles/styles.css" />
+
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="fonts/syte/css/syte.css">
+    <!--[if IE 7]><link rel="stylesheet" href="fonts/syte/css/syte-ie7.css"><![endif]-->
+</head>
 </head>
 <body>
-    <!-- Markup -->
-    <div class="navbar navbar-fixed-top">
-        <div class="navbar-inner">
-            <div class="container">
-                <a class="brand" href="/">IJSE STU</a>
-                <ul class="nav">
-                    
-                        <li typeof="sioc:Page" about="/pages/hello" class="">
-                            <a href="/pages/hello" property="dc:title">归档</a>
-                        </li>
-                    
-                        <li typeof="sioc:Page" about="/pages/posts" class="">
-                            <a href="/pages/posts" property="dc:title">日志列表</a>
-                        </li>
-                    
-                </ul>
-            </div>
+    <header class="main-header">
+    <hgroup>
+        <div class="picture">
+            <a href="/" rel="home"></a>
         </div>
-    </div>
-    <div class="container">
-        <section id="content" class="content">
-            <!-- Main hero unit for a primary marketing message or call to action -->
-<div class="hero-unit">
-    <h1>Welcome to your new site!</h1>
-    <p>
-        We've copied over the
-        <a href="https://github.com/docpad/twitter-bootstrap.docpad">
-            Twitter Bootstrap Skeleton
-        </a>
-        for you already, which is what you're currently viewing.
+        <h1>IJSE STU</h1>
+        <h2>keep coding...</h2>
+    </hgroup>
+    <nav>
+        <ul class="main-nav">
 
-        Step through the guide below and we'll walk you through the process of working with your first docpad website :-)
-    </p>
+            <!-- <li><a href="/" id="home-link">Home</a></li> -->
+            
+                
+                    <li>
+                        <a href="/" class="page-link" 
+                        target="_self">
+                            Home
+                        </a>
+                    </li>
+                
+            
+                
+                    
+                    <li>
+                        <a href="http://github.com/ijse"
+                            class="social-link"
+                            data-socialid="github"
+                            target="_blank">
+                            GitHub
+                            
+                        </a>
+                    </li>
+                
+            
+            <li>
+                <a href="mailto:i@ijser.cn?subject=Hello" id="contact-link">Contact <span class="icon-link"/></a>
+            </li>
+
+        </ul>
+    </nav>
+    
+</header>
+
+    <!-- Page Content -->
+    
+
+<section class="main-section blog-section" id="blog-posts">
+    
+        <article id="posts\hello.html.md">
+    <hgroup>
+        <h2><a href="/posts/hello.html">This is a Blog Post&nbsp;</a></h2>
+        <h3><a href="#posts\hello.html.md">Tue Feb 12 2013 00:50:51 GMT+0800 (中国标准时间)</a></h3>
+    </hgroup>
+    <h1>marked</h1>
+<p>A full-featured markdown parser and compiler, written in javascript.
+Built for speed.</p>
+
+    <footer>
+        
+        <h4>Tags</h4>
+        <ul class="tags">
+            
+            <li><a href="/tags/intro">intro</a></li>
+            
+            <li><a href="/tags/podst">podst</a></li>
+            
+        </ul>
+        
+        
+    </footer>
+</article>
+
+    
+</section>
+
+    <div class="mobile-nav">
+    <span class="nav-btn" id="mobile-nav-btn">
+        <span class="nav-btn-bar"></span>
+        <span class="nav-btn-bar"></span>
+        <span class="nav-btn-bar"></span>
+    </span>
+    <h3><a href="/">http://www.ijser.cn</a></h3>
 </div>
 
-<!-- Example row of columns -->
-<div class="row" style="text-align:center;">
-    <div class="span6">
-        <h2>Docpad</h2>
-        <p>DocPad takes that good ol' simple approach of writing files and wraps it with the best modern innovations, providing an awesome intuitive, liberating and empowering solution for HTML5 web development.</p>
-        <p><a class="btn" href="https://github.com/bevry/docpad">Visit Website</a></p>
-    </div>
-    <div class="span6">
-        <h2>Twitter Bootstrap</h2>
-        <p>Bootstrap is a toolkit from Twitter designed to kickstart development of webapps and sites. It includes base CSS and HTML for typography, forms, buttons, tables, grids, navigation, and more.</p>
-        <p><a class="btn" href="http://twitter.github.com/bootstrap/">Visit Website</a></p>
-    </div>
-</div>
-        </section>
-        <footer>
-            <p>&copy; ijse 2012</p>
-            <p style="float:right;">
-                上次更新:2013-02-03T01:45:49.496Z
-            </p>
-        </footer>
-    </div><!-- /container -->
+<!-- Analytic Accounts -->
 
-    <!-- Scripts -->
-    <script >(function(){
+    <script src="http://include.reinvigorate.net/re_.js"></script>
+<script>reinvigorate.track("")</script>
+
+    <script>
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', '']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+
+
+<!-- Scripts -->
+<script >(function(){
 	// Did we just livereload?
 var log = true && localStorage && console && console.log && true;
 if ( log && localStorage.getItem('/docpad-livereload/reloaded') === 'yes' ) {
@@ -131,5 +182,289 @@ var inject = function(){
 		inject();
 	}
 })();</script><script defer="defer"  src="/vendor/jquery.js"></script><script defer="defer"  src="/vendor/log.js"></script><script defer="defer"  src="/vendor/modernizr.js"></script><script defer="defer"  src="/scripts/script.js"></script>
+
+<!-- Social Profiles -->
+<div class="modal-backdrop fade" style="display:none"></div>
+
+    
+
+    
+        <div class="profile github modal fade" id="github-profile">
+    
+    <div class="profile-info">
+        <button class="close" data-dismiss="modal">×</button>
+        <a href="http://github.com/ijse" target="_blank" class="profile-avatar">
+            <img src="http://gravatar.com/avatar/b4deefbe844c0b4085a893e5dce2f69d" alt="Li Yi" />
+        </a>
+        <div class="profile-name">
+            <h2><a href="http://github.com/ijse" target="_blank">Li Yi</a></h2>
+            <h3><a href="http://github.com/ijse" target="_blank">ijse</a></h3>
+        </div>
+     <p class="profile-location-url">
+            
+            <span>Shandong China</span>
+            <span class="divider">·</span>
+            
+            
+            <span><a href="http://www.ijser.cn" target="_blank">http://www.ijser.cn</a></span>
+            
+        </p>
+    </div>
+    <ul class="profile-stats">
+        <li><a href="http://github.com/ijse" target="_blank"><strong>20</strong> repos</a></li>
+        <li><a href="http://github.com/ijse/following" target="_blank"><strong>5</strong> following</a></li>
+        <li><a href="http://github.com/ijse/followers" target="_blank"><strong>3</strong> followers</a></li>
+    </ul>
+    <div class="profile-info-footer">
+        <a href="http://github.com/ijse" target="_blank" class="btn">Follow on Github</a>
+    </div>
+    
+    <ul class="profile-repos">
+        
+            <li>
+            <a href="https://github.com/ijse/FED" target="_blank" class="profile-repo-name">FED</a>
+            <p class="profile-repo-text">
+                The Front-End Develop Kitchen
+            </p>
+            <ul class="profile-repo-stats">
+                <li>JavaScript</li>
+                <li><a href="https://github.com/ijse/FED/watchers" target="_blank" class="profile-watchers">2</a></li>
+                <li><a href="https://github.com/ijse/FED/network" target="_blank" class="profile-forks">4</a></li>
+            </ul>
+            </li>
+        
+            <li>
+            <a href="https://github.com/ijse/canku" target="_blank" class="profile-repo-name">canku</a>
+            <p class="profile-repo-text">
+                使用Nodejs编写多人订餐系统
+            </p>
+            <ul class="profile-repo-stats">
+                <li>JavaScript</li>
+                <li><a href="https://github.com/ijse/canku/watchers" target="_blank" class="profile-watchers">0</a></li>
+                <li><a href="https://github.com/ijse/canku/network" target="_blank" class="profile-forks">0</a></li>
+            </ul>
+            </li>
+        
+            <li>
+            <a href="https://github.com/ijse/ijse.github.com" target="_blank" class="profile-repo-name">ijse.github.com</a>
+            <p class="profile-repo-text">
+                My blog? 
+            </p>
+            <ul class="profile-repo-stats">
+                <li>JavaScript</li>
+                <li><a href="https://github.com/ijse/ijse.github.com/watchers" target="_blank" class="profile-watchers">0</a></li>
+                <li><a href="https://github.com/ijse/ijse.github.com/network" target="_blank" class="profile-forks">0</a></li>
+            </ul>
+            </li>
+        
+            <li>
+            <a href="https://github.com/ijse/FMtoll" target="_blank" class="profile-repo-name">FMtoll</a>
+            <p class="profile-repo-text">
+                #FED 的Freemarker模板渲染实现部分
+            </p>
+            <ul class="profile-repo-stats">
+                <li>Java</li>
+                <li><a href="https://github.com/ijse/FMtoll/watchers" target="_blank" class="profile-watchers">0</a></li>
+                <li><a href="https://github.com/ijse/FMtoll/network" target="_blank" class="profile-forks">0</a></li>
+            </ul>
+            </li>
+        
+            <li>
+            <a href="https://github.com/ijse/Drag2Happy" target="_blank" class="profile-repo-name">Drag2Happy</a>
+            <p class="profile-repo-text">
+                一键传到公司内网FTP的小工具
+            </p>
+            <ul class="profile-repo-stats">
+                <li>Python</li>
+                <li><a href="https://github.com/ijse/Drag2Happy/watchers" target="_blank" class="profile-watchers">0</a></li>
+                <li><a href="https://github.com/ijse/Drag2Happy/network" target="_blank" class="profile-forks">0</a></li>
+            </ul>
+            </li>
+        
+            <li>
+            <a href="https://github.com/ijse/Orz" target="_blank" class="profile-repo-name">Orz</a>
+            <p class="profile-repo-text">
+                前端常用工具集，Nodejs实现
+            </p>
+            <ul class="profile-repo-stats">
+                <li>CoffeeScript</li>
+                <li><a href="https://github.com/ijse/Orz/watchers" target="_blank" class="profile-watchers">0</a></li>
+                <li><a href="https://github.com/ijse/Orz/network" target="_blank" class="profile-forks">0</a></li>
+            </ul>
+            </li>
+        
+            <li>
+            <a href="https://github.com/ijse/CYNADNET" target="_blank" class="profile-repo-name">CYNADNET</a>
+            <p class="profile-repo-text">
+                给公司写的监控网络流量工具
+            </p>
+            <ul class="profile-repo-stats">
+                <li>Python</li>
+                <li><a href="https://github.com/ijse/CYNADNET/watchers" target="_blank" class="profile-watchers">0</a></li>
+                <li><a href="https://github.com/ijse/CYNADNET/network" target="_blank" class="profile-forks">0</a></li>
+            </ul>
+            </li>
+        
+            <li>
+            <a href="https://github.com/ijse/omnes" target="_blank" class="profile-repo-name">omnes</a>
+            <p class="profile-repo-text">
+                类似WIKI系统的知识分享梳理站
+            </p>
+            <ul class="profile-repo-stats">
+                <li>JavaScript</li>
+                <li><a href="https://github.com/ijse/omnes/watchers" target="_blank" class="profile-watchers">1</a></li>
+                <li><a href="https://github.com/ijse/omnes/network" target="_blank" class="profile-forks">1</a></li>
+            </ul>
+            </li>
+        
+            <li>
+            <a href="https://github.com/ijse/JSku" target="_blank" class="profile-repo-name">JSku</a>
+            <p class="profile-repo-text">
+                JS Library, personal
+            </p>
+            <ul class="profile-repo-stats">
+                <li></li>
+                <li><a href="https://github.com/ijse/JSku/watchers" target="_blank" class="profile-watchers">0</a></li>
+                <li><a href="https://github.com/ijse/JSku/network" target="_blank" class="profile-forks">0</a></li>
+            </ul>
+            </li>
+        
+            <li>
+            <a href="https://github.com/ijse/mloader" target="_blank" class="profile-repo-name">mloader</a>
+            <p class="profile-repo-text">
+                同步/异步加载JS文件的工具，管理JS依赖
+            </p>
+            <ul class="profile-repo-stats">
+                <li>JavaScript</li>
+                <li><a href="https://github.com/ijse/mloader/watchers" target="_blank" class="profile-watchers">0</a></li>
+                <li><a href="https://github.com/ijse/mloader/network" target="_blank" class="profile-forks">0</a></li>
+            </ul>
+            </li>
+        
+            <li>
+            <a href="https://github.com/ijse/CSS3P" target="_blank" class="profile-repo-name">CSS3P</a>
+            <p class="profile-repo-text">
+                CSS3 演示PPT
+            </p>
+            <ul class="profile-repo-stats">
+                <li>JavaScript</li>
+                <li><a href="https://github.com/ijse/CSS3P/watchers" target="_blank" class="profile-watchers">0</a></li>
+                <li><a href="https://github.com/ijse/CSS3P/network" target="_blank" class="profile-forks">0</a></li>
+            </ul>
+            </li>
+        
+            <li>
+            <a href="https://github.com/ijse/CodePlay" target="_blank" class="profile-repo-name">CodePlay</a>
+            <p class="profile-repo-text">
+                一个用于演示和测试代码的页面工具，基于CodeMirror开发。
+            </p>
+            <ul class="profile-repo-stats">
+                <li>JavaScript</li>
+                <li><a href="https://github.com/ijse/CodePlay/watchers" target="_blank" class="profile-watchers">0</a></li>
+                <li><a href="https://github.com/ijse/CodePlay/network" target="_blank" class="profile-forks">0</a></li>
+            </ul>
+            </li>
+        
+            <li>
+            <a href="https://github.com/ijse/EFsite" target="_blank" class="profile-repo-name">EFsite</a>
+            <p class="profile-repo-text">
+                Nodejs, express框架练习程序，小BBS
+            </p>
+            <ul class="profile-repo-stats">
+                <li>JavaScript</li>
+                <li><a href="https://github.com/ijse/EFsite/watchers" target="_blank" class="profile-watchers">1</a></li>
+                <li><a href="https://github.com/ijse/EFsite/network" target="_blank" class="profile-forks">1</a></li>
+            </ul>
+            </li>
+        
+            <li>
+            <a href="https://github.com/ijse/NodeSite" target="_blank" class="profile-repo-name">NodeSite</a>
+            <p class="profile-repo-text">
+                一个Node.js网站开发架构
+            </p>
+            <ul class="profile-repo-stats">
+                <li>JavaScript</li>
+                <li><a href="https://github.com/ijse/NodeSite/watchers" target="_blank" class="profile-watchers">0</a></li>
+                <li><a href="https://github.com/ijse/NodeSite/network" target="_blank" class="profile-forks">0</a></li>
+            </ul>
+            </li>
+        
+            <li>
+            <a href="https://github.com/ijse/NodeExpressSite" target="_blank" class="profile-repo-name">NodeExpressSite</a>
+            <p class="profile-repo-text">
+                expressjs 练手程序
+            </p>
+            <ul class="profile-repo-stats">
+                <li>JavaScript</li>
+                <li><a href="https://github.com/ijse/NodeExpressSite/watchers" target="_blank" class="profile-watchers">0</a></li>
+                <li><a href="https://github.com/ijse/NodeExpressSite/network" target="_blank" class="profile-forks">0</a></li>
+            </ul>
+            </li>
+        
+            <li>
+            <a href="https://github.com/ijse/formHelper" target="_blank" class="profile-repo-name">formHelper</a>
+            <p class="profile-repo-text">
+                JQueryUI插件，简化对于大表单常用的取值/赋值等操作
+            </p>
+            <ul class="profile-repo-stats">
+                <li>JavaScript</li>
+                <li><a href="https://github.com/ijse/formHelper/watchers" target="_blank" class="profile-watchers">0</a></li>
+                <li><a href="https://github.com/ijse/formHelper/network" target="_blank" class="profile-forks">0</a></li>
+            </ul>
+            </li>
+        
+            <li>
+            <a href="https://github.com/ijse/cellmap" target="_blank" class="profile-repo-name">cellmap</a>
+            <p class="profile-repo-text">
+                JQueryUI插件，可实现画方格地图
+            </p>
+            <ul class="profile-repo-stats">
+                <li>JavaScript</li>
+                <li><a href="https://github.com/ijse/cellmap/watchers" target="_blank" class="profile-watchers">0</a></li>
+                <li><a href="https://github.com/ijse/cellmap/network" target="_blank" class="profile-forks">0</a></li>
+            </ul>
+            </li>
+        
+            <li>
+            <a href="https://github.com/ijse/jsbin" target="_blank" class="profile-repo-name">jsbin</a>
+            <p class="profile-repo-text">
+                Collaborative JavaScript Debugging App
+            </p>
+            <ul class="profile-repo-stats">
+                <li>JavaScript</li>
+                <li><a href="https://github.com/ijse/jsbin/watchers" target="_blank" class="profile-watchers">0</a></li>
+                <li><a href="https://github.com/ijse/jsbin/network" target="_blank" class="profile-forks">0</a></li>
+            </ul>
+            </li>
+        
+            <li>
+            <a href="https://github.com/ijse/RequireEx" target="_blank" class="profile-repo-name">RequireEx</a>
+            <p class="profile-repo-text">
+                A module for NodeJS to advance require()
+            </p>
+            <ul class="profile-repo-stats">
+                <li>JavaScript</li>
+                <li><a href="https://github.com/ijse/RequireEx/watchers" target="_blank" class="profile-watchers">0</a></li>
+                <li><a href="https://github.com/ijse/RequireEx/network" target="_blank" class="profile-forks">0</a></li>
+            </ul>
+            </li>
+        
+            <li>
+            <a href="https://github.com/ijse/Log4Jse" target="_blank" class="profile-repo-name">Log4Jse</a>
+            <p class="profile-repo-text">
+                轻巧的JS日志管理插件
+            </p>
+            <ul class="profile-repo-stats">
+                <li>JavaScript</li>
+                <li><a href="https://github.com/ijse/Log4Jse/watchers" target="_blank" class="profile-watchers">0</a></li>
+                <li><a href="https://github.com/ijse/Log4Jse/network" target="_blank" class="profile-forks">0</a></li>
+            </ul>
+            </li>
+        
+    </ul>
+</div>
+
+    
+
 </body>
 </html>
