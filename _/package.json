@@ -53,7 +53,8 @@
     "docpad-plugin-less": "2.x",
     "docpad-plugin-robotskirt": "2.x",
     "docpad-plugin-partials": "2.x",
-    "docpad-plugin-text": "2.x"
+    "docpad-plugin-text": "2.x",
+    "docpad-plugin-paged": "~2.1.1"
   },
   "devDependencies": {
     "docpad-plugin-livereload": "2.x"

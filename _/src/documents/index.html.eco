@@ -4,14 +4,39 @@ layout: default
 pageOrder: 0
 target: _self
 tags: ['page']
+
+isPaged: true
+pageOrder: 0
+pagedCollection: 'posts'
+pageSize: 3
 ---
+<% posts = @getCollection('posts') %>
+<section class="main-section bloglist-section" id="blog-posts">
+<% for i in [@document.page.startIdx...@document.page.endIdx]: %>
+    <% post = posts.at(i).toJSON() %>
+	<%- @partial("post/#{post.type}-list.html.eco", @, post) %>
+<% end %>
 
-
-<%# @partial('content/list.html.eco', @, {posts:@getCollection("posts").toJSON() } ) %>
-
-<section class="main-section blog-section" id="blog-posts">
-	<% for post in @getCollection("posts").toJSON(): %>
-		<%- @partial("post/#{post.type}-list.html.hb", @, post) %>
-	<% end %>
+	<div class="pagination">
+	    <ul>
+	        <% if !@getDocument().hasPrevPage(): %>
+	            <li class="prev disabled">
+	            	<span>Prev</span>
+	            </li>
+	        <% else: %>
+	            <li class="prev">
+	            	<a href="<%= @getDocument().getPrevPage() %>.html">Prev</a>
+	            </li>
+	        <% end %>
+	        <% if !@getDocument().hasNextPage(): %>
+	            <li class="next disabled">
+	            	<span>Next</span>
+	            </li>
+	        <% else: %>
+	            <li class="next">
+	            	<a href="<%= @getDocument().getNextPage() %>.html">Next</a>
+	            </li>
+	        <% end %>
+	    </ul>
+	</div>
 </section>
-

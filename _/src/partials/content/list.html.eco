@@ -1,5 +1,5 @@
 <section class="main-section blog-section" id="blog-posts">
 	<% for post in @posts: %>
-		<%- @partial("post/#{post.type}.html.hb", @, post) %>
+		<%- @partial("post/#{post.type}-list.html.eco", @, post) %>
 	<% end %>
 </section>

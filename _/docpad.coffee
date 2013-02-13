@@ -32,7 +32,10 @@ module.exports = {
 	templateData:
 
 		# Moment
-		moment: require('moment')
+		moment: ( ->
+			mom = require('moment')
+			return mom;
+		)()
 
 		# Specify the theme we are using
 		theme: "metro"

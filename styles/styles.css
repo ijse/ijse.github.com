@@ -1018,6 +1018,57 @@ ol.linenums li {
   margin-left: 241px;
   padding: 35px;
 }
+.bloglist-section hgroup h2 {
+  margin: 0 0 0 0;
+}
+.bloglist-section hgroup h2 a {
+  border-bottom: 0;
+  font-weight: 500;
+}
+.bloglist-section time {
+  width: 100px;
+  height: 50px;
+  display: block;
+  margin: 0 10px 0 0;
+  background-color: #d75701;
+  float: left;
+  text-align: center;
+  color: white;
+  overflow: hidden;
+}
+.bloglist-section article {
+  width: 700px;
+  overflow: hidden;
+  line-height: 25px;
+  padding: 25px 35px 10px 34px;
+  background-color: #fff;
+}
+.bloglist-section article:hover {
+  background-color: #e6e6e6;
+}
+.bloglist-section article img {
+  padding: 2px;
+  border: 1px solid #C2C2C2;
+  margin: 0px 15px 5px 0px;
+  max-width: 700px;
+}
+.bloglist-section article a.img-link {
+  border-bottom: 0;
+}
+.bloglist-section article a.img-link:hover img {
+  border-color: #d75701;
+}
+.bloglist-section footer {
+  padding-top: 10px;
+  clear: both;
+}
+.bloglist-section footer h4 {
+  float: left;
+  text-transform: uppercase;
+  font-size: 13px;
+  line-height: 28px;
+  padding: 0px 15px 0px 0;
+}
 .blog-section {
   padding: 0;
 }
@@ -1114,6 +1165,51 @@ ol.linenums li {
   text-shadow: none;
   border: 1px solid #d75701;
 }
+@media (max-width: 800px) {
+  .blog-section article {
+    width: 400px;
+  }
+  .blog-section article img {
+    max-width: 400px;
+  }
+}
+@media (min-width: 801px) and (max-width: 1024px) {
+  .blog-section article {
+    width: 500px;
+  }
+  .blog-section article img {
+    max-width: 400px;
+  }
+}
+.pagination ul {
+  display: block;
+}
+.pagination ul li {
+  display: inline-block;
+  list-style: none;
+}
+.pagination ul li span,
+.pagination ul li a {
+  height: 30px;
+  width: 60px;
+  display: block;
+  line-height: 30px;
+  color: white;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  background-color: #d75701;
+}
+.pagination ul li.prev {
+  float: left;
+}
+.pagination ul li.next {
+  float: right;
+}
+.pagination ul li.disabled span {
+  background-color: #b3b3b3;
+  color: #e6e6e6;
+}
 .disqus-thread a {
   border-bottom: 0;
 }
@@ -1151,22 +1247,6 @@ ol.linenums li {
   }
   header.main-header .picture {
     display: none;
-  }
-}
-@media (max-width: 800px) {
-  .blog-section article {
-    width: 400px;
-  }
-  .blog-section article img {
-    max-width: 400px;
-  }
-}
-@media (min-width: 801px) and (max-width: 1024px) {
-  .blog-section article {
-    width: 500px;
-  }
-  .blog-section article img {
-    max-width: 400px;
   }
 }
 @media (max-width: 799px) {
