@@ -1,12 +1,9 @@
 ---
 title: Home
 layout: default
-pageOrder: 0
-target: _self
 tags: ['page']
 
 isPaged: true
-pageOrder: 0
 pagedCollection: 'posts'
 pageSize: 3
 ---

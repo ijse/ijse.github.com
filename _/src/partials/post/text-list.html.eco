@@ -1,0 +1,21 @@
+<article id="<%=@id %>">
+	<time>
+		<%= @moment(@date.toString()).calendar() %>
+	</time>
+	<hgroup>
+		<h2>
+			<a href="<%=@url %>.html"><%= @title %>&nbsp;</a>
+		</h2>
+	</hgroup>
+	<section><%=@desc or '' %></section>
+	<footer>
+		<% if @tags: %>
+		<h4>Tags</h4>
+		<ul class="tags">
+			<% for t in @tags: %>
+			<li><a href="/tags/<%= t %>"><%= t %></a></li>
+			<% end %>
+		</ul>
+		<% end %>
+	</footer>
+</article>

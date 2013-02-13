@@ -5,9 +5,6 @@
 queryEngine = require('docpad').queryEngine
 feedr = new (require('feedr').Feedr)
 envConfig = process.env
-tumblrPosts = null
-tumblrPostsInTag = {}
-tumblrTags = []
 
 
 # =================================
@@ -53,6 +50,9 @@ module.exports = {
 
 			# The website author's email
 			email: "i@ijser.cn"
+
+			# The source url of this site
+			sourceUrl: "http://github.com/ijse/ijse.github.com.git"
 
 			# The website heading to be displayed on the page
 			heading: 'IJSE STU'
@@ -108,13 +108,6 @@ module.exports = {
 			# If you specify a feed for the Feedr plugin (specified later on)
 			# then we will pull in their feed data too for recognised services
 			social:
-				# Twitter
-				# twitter:
-				# 	name: 'Twitter'
-				# 	url: "https://twitter.com/#{envConfig.TWITTER_USERNAME}"
-				# 	profile:
-				# 		feeds:
-				# 			tweets: 'twitter'
 
 				# GitHub
 				github:
@@ -125,37 +118,6 @@ module.exports = {
 							user: 'githubUser'
 							repos: 'githubRepos'
 
-				# # Vimeo
-				# vimeo:
-				# 	name: 'Vimeo'
-				# 	url: "https://vimeo.com/#{envConfig.VIMEO_USERNAME}"
-
-				# # Flickr
-				# flickr:
-				# 	name: 'Flickr'
-				# 	url: "http://www.flickr.com/people/#{envConfig.FLICKR_USER_ID}"
-				# 	profile:
-				# 		feeds:
-				# 			user: 'flickrUser'
-				# 			photos: 'flickrPhotos'
-
-				# # Soundcloud
-				# soundcloud:
-				# 	name: 'Soundcloud'
-				# 	url: "http://soundcloud.com/#{envConfig.SOUNDCLOUD_USERNAME}"
-				# 	profile:
-				# 		feeds:
-				# 			user: 'soundcloudUser'
-				# 			tracks: 'soundcloudTracks'
-
-				# # Instagram
-				# instagram:
-				# 	name: 'Instagram'
-				# 	url: "http://instagram.com/#{envConfig.INSTAGRAM_USER_ID}"
-				# 	profile:
-				# 		feeds:
-				# 			user: 'instagramUser'
-				# 			media: 'instagramMedia'
 
 		# -----------------------------
 		# Common links used throughout the website
@@ -212,9 +174,6 @@ module.exports = {
 			# Merge the document keywords with the site keywords
 			@site.keywords.concat(@document.keywords or []).join(', ')
 
-		# partial: (filename, data)->
-		# 	console.log("-------------------=-=-=-=------------------")
-
 	# =================================
 	# Collections
 	# These are special collections that our website makes available to us
@@ -238,65 +197,6 @@ module.exports = {
 		# 	# Check
 		# 	return next()  if tumblrPosts? or envConfig.TUMBLR_BLOG? is false
 
-			# # Prepare
-			# tumblrUrl = "http://api.tumblr.com/v2/blog/#{envConfig.TUMBLR_BLOG}/posts?api_key=#{envConfig.TUMBLR_API_KEY}"
-			# tumblrPosts = []
-
-			# # Read feeds
-			# feedr.readFeed tumblrUrl, (err,feedData) ->
-			# 	# Check
-			# 	return next(err)  if err
-
-			# 	# Concat the posts
-			# 	tumblrPosts = tumblrPosts.concat(feedData.response.posts)
-
-			# 	# Fetch the remaining posts
-			# 	totalPosts = feedData.response.blog.posts
-			# 	feeds = []
-			# 	for offset in [20...totalPosts] by 20
-			# 		feeds.push(tumblrUrl+'&offset='+offset)
-			# 	feedr.readFeeds feeds, (err,feedsData) ->
-			# 		# Check
-			# 		return next(err)  if err
-
-			# 		# Concat the posts
-			# 		for feedData in feedsData
-			# 			tumblrPosts = tumblrPosts.concat(feedData.response.posts)
-
-			# 		# Concat the tags
-			# 		for tumblrPost in tumblrPosts
-			# 			for tumblrPostTag in tumblrPost.tags
-			# 				if tumblrPostsInTag[tumblrPostTag]?
-			# 					tumblrPostsInTag[tumblrPostTag] = [tumblrPost]
-			# 				else
-			# 					tumblrPostsInTag[tumblrPostTag].push(tumblrPost)
-			# 		tumblrTags = Object.keys(tumblrPostsInTag)
-
-			# 		# Done
-			# 		return next(err)
-
-			# Done
-			# return
-
-		# Add our tumblr posts to the template data
-		#extendTemplateData: (opts) ->
-			# Prepare
-		#	templateData = opts.templateData
-
-			# Add the tumblr posts to the template data
-			# templateData.tumblrPosts = tumblrPosts
-			# templateData.tumblrPostsInTag = tumblrPostsInTag
-			# templateData.tumblrTags = tumblrTags
-
-			# Done
-		#	return
-
-		# Add our tumblr tag pages to our documents collection
-		#populateCollections: (opts) ->
-			# Prepare
-
-		#	docpad.renderPath(partial.path, {templateData:partial.data}, next)
-
 
 	# =================================
 	# Plugin Configuration
@@ -311,27 +211,9 @@ module.exports = {
 
 			# These are the feeds that Feedr will pull in
 			feeds:
-				# Twitter
-				twitter: url: "https://api.twitter.com/1/statuses/user_timeline.json?screen_name=#{envConfig.TWITTER_USERNAME}&count=50&include_entities=false&include_rts=false&exclude_replies=true"
 
 				# Github
 				githubUser: url: "https://api.github.com/users/#{envConfig.GITHUB_USERNAME}?client_id=#{envConfig.GITHUB_CLIENT_ID}&client_secret=#{envConfig.GITHUB_CLIENT_SECRET}"
 				githubRepos: url: "https://api.github.com/users/#{envConfig.GITHUB_USERNAME}/repos?sort=updated&client_id=#{envConfig.GITHUB_CLIENT_ID}&client_secret=#{envConfig.GITHUB_CLIENT_SECRET}"
 
-				# Vimeo
-				vimeo: url: "http://vimeo.com/api/v2/#{envConfig.VIMEO_USERNAME}/videos.json"
-
-				# Flickr
-				flickrUser:
-					url: "http://api.flickr.com/services/rest/?method=flickr.people.getInfo&api_key=#{envConfig.FLICKR_API_KEY}&user_id=#{envConfig.FLICKR_USER_ID}&format=json&nojsoncallback=1"
-					clean: true
-				flickrPhotos: url: "http://api.flickr.com/services/feeds/photos_public.gne?id=#{envConfig.FLICKR_USER_ID}&lang=en-us&format=json&nojsoncallback=1"
-
-				# Soundcloud
-				soundcloudUser: url: "https://api.soundcloud.com/users/#{envConfig.SOUNDCLOUD_USERNAME}.json?client_id=#{envConfig.SOUNDCLOUD_CLIENT_ID}"
-				soundcloudTracks: url: "https://api.soundcloud.com/users/#{envConfig.SOUNDCLOUD_USERNAME}/tracks.json?client_id=#{envConfig.SOUNDCLOUD_CLIENT_ID}"
-
-				# Instagram
-				instagramUser: url: "https://api.instagram.com/v1/users/#{envConfig.INSTAGRAM_USER_ID}?client_id=#{envConfig.INSTAGRAM_CLIENT_ID}"
-				instagramMedia: url: "https://api.instagram.com/v1/users/#{envConfig.INSTAGRAM_USER_ID}/media/recent?access_token=#{envConfig.INSTAGRAM_ACCESS_TOKEN}"
 }

@@ -15,7 +15,7 @@
 <!-- Social Profiles -->
 <div class="modal-backdrop fade" style="display:none"></div>
 <% for document in @getCollection('pages').toJSON(): %>
-	<% if document.socialID:%>
+	<% if document.socialID?:%>
 		<%- @partial("social/#{document.socialID}.html.hb", @, @getSocialFeeds(document.socialID)) %>
 	<% end %>
 <% end %>
