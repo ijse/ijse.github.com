@@ -42,7 +42,7 @@
   "dependencies": {
     "moment": "1.7.x",
     "docpad": "6.x",
-    "docpad-plugin-cachr": "2.x",
+    "feedr": "2.x",
     "docpad-plugin-cleanurls": "2.x",
     "docpad-plugin-coffeescript": "2.x",
     "docpad-plugin-coffeekup": "2.x",
@@ -50,14 +50,12 @@
     "docpad-plugin-feedr": "2.x",
     "docpad-plugin-handlebars": "2.x",
     "docpad-plugin-js2coffee": "2.x",
+    "docpad-plugin-livereload": "2.x",
+    "docpad-plugin-marked": "2.x",
     "docpad-plugin-less": "2.x",
-    "docpad-plugin-robotskirt": "2.x",
     "docpad-plugin-partials": "2.x",
     "docpad-plugin-text": "2.x",
     "docpad-plugin-paged": "~2.1.1"
-  },
-  "devDependencies": {
-    "docpad-plugin-livereload": "2.x"
   },
   "main": "node_modules/docpad/bin/docpad-server"
 }
