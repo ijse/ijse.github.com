@@ -2,9 +2,10 @@
 layout: post
 title: "IE6 下PNG图片不能半透明BUG"
 description: ""
-category: 
-tags: []
+category:  article
+tags: [css, png, bug]
 ---
+
 {% include JB/setup %}
 
 
