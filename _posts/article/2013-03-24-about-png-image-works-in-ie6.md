@@ -2,9 +2,11 @@
 layout: post
 title: "IE6 下PNG图片不能半透明BUG"
 description: ""
-category: 
-tags: []
+category:  article
+tags: [css, png, bug]
+published: true
 ---
+
 {% include JB/setup %}
 
 
@@ -15,13 +17,13 @@ IE 7 以下的浏览器是不支持PNG图片半透明的的，详细说是不支
 这种图片是以img的形式插入到网页中的。要解决这类图片的透明问题，只需要给这个图片一个class=“png”类，具体应用如下：
 html代码：  
 
-```html
+
 	<img src="" class="png" />
-```
+
 
 css代码如下：
 
-```css
+
 	img.png {
 		background-image: expression(
 			this.runtimeStyle.backgroundImage = "none",
@@ -29,7 +31,7 @@ css代码如下：
 			this.src = "images/1.gif"
 		)
 	}
-```
+
 
 注意这里的1.gif图片是一个新的引入的图片。放入到相应的文件夹里即可。文章的下面的压缩包就是1.gif的图片。
  
@@ -106,11 +108,11 @@ Unit PNG Fix能够让 background-repeat在ie6下工作,不过这种工作方式�
 
 用法也是一样，很简单：
 
-```html
+
 	<!--[if lte IE 6]>
 	<script type="text/javascript" src="supersleight-min.js"></script>
 	<![endif]-->
-```
+
 
 在你的JS里面可以这样调用：
 
