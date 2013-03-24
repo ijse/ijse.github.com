@@ -3,7 +3,7 @@ layout: post
 category : Life
 tagline: "Supporting tagline"
 tags : [jekyll, blog]
-published: false
+published: true
 ---
 
 {% include JB/setup %}
