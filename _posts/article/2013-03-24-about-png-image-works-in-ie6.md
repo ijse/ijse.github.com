@@ -10,19 +10,18 @@ published: true
 {% include JB/setup %}
 
 
-IE 7 以下的浏览器是不支持PNG图片半透明的的，详细说是不支持图片的alpha通道， 小图片存储为8位的可以用，但是32位的无法支持。 
+IE 7 以下的浏览器是不支持PNG图片半透明的的，详细说是不支持图片的alpha通道， 小图片存储为8位的可以用，但是32位的无法支持。
 
 ## png图片的透明。
- 
+
 这种图片是以img的形式插入到网页中的。要解决这类图片的透明问题，只需要给这个图片一个class=“png”类，具体应用如下：
-html代码：  
+html代码：
 
 
 	<img src="" class="png" />
 
 
 css代码如下：
-
 
 	img.png {
 		background-image: expression(
@@ -32,9 +31,8 @@ css代码如下：
 		)
 	}
 
-
 注意这里的1.gif图片是一个新的引入的图片。放入到相应的文件夹里即可。文章的下面的压缩包就是1.gif的图片。
- 
+
 ## png背景图片的透明
 
 要给.content这个div一个透明png的背景：
@@ -47,14 +45,14 @@ css样式如下：
 
 	background:url(images/touming.png);
 	_background-image:url(fixpng.png);
-	background: none transparent scroll repeat 0% 0%; 
+	background: none transparent scroll repeat 0% 0%;
 	FILTER: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/touming.png',sizingMethod='scale');
-	 
+
 ## 封装好的一些JS插件
 
 这些插件用起来还是蛮方便的，好多都是国外的，在国外IE6用户很少了，我们目前所遇到的这个问题是人家早在好几年前就解决了并且目前不存在的。
 
-* 使用behavior 
+* 使用behavior
 
 在页面网页文件中</head>的前面加入：
 
@@ -66,7 +64,7 @@ css样式如下：
 
 	img, div, td {behavior: url('/iepngfix.htc')}
 
-修改iepngfix.htc文件中blank.gif（大小为一个像素的透明图片）的URL并上传到对应位置，如果找不到这个blank.gif文件会在PNG图片上面多出一个叉叉 
+修改iepngfix.htc文件中blank.gif（大小为一个像素的透明图片）的URL并上传到对应位置，如果找不到这个blank.gif文件会在PNG图片上面多出一个叉叉
 
 iepngfix.htc文件下载：
 
@@ -74,18 +72,18 @@ iepngfix.htc文件下载：
 
 这个还蛮不错的，主要有以下特点：
 
-	1. 非常小的javascript文件:1kb!
-	2. 解决因为IE的滤镜属性所带来的影响.
-	3. 无论是img元素或background-image属性,都能有效果.
-	4. 在加载页面之前就能自动运行.或者就一丁点的元素.
-	5. 允许自动高宽.
-	6. 使用起来超级简单.
+1. 非常小的javascript文件:1kb!
+2. 解决因为IE的滤镜属性所带来的影响.
+3. 无论是img元素或background-image属性,都能有效果.
+4. 在加载页面之前就能自动运行.或者就一丁点的元素.
+5. 允许自动高宽.
+6. 使用起来超级简单.
 
 1).下载zip 然后,添加下面的代码到你页面的头部.(一定要确保路径的正确)
 
 	<!--[if lt IE 7]>
 	        <script type="text/javascript" src="unitpngfix.js"></script>
-	<![endif]--> 
+	<![endif]-->
 
 2).添加`clear.gif`到你的images 文件夹中.在js文件中,修改`var clear="images/clear.gif`路径,为你存放clear.gif的文件路径.
 
@@ -100,11 +98,11 @@ Unit PNG Fix能够让 background-repeat在ie6下工作,不过这种工作方式�
 
 这个也不错，特点如下：
 
-	1. 支持`inline`元素和`background-image`
-	2. 如果链接或表单元素没有设置`position`属性，那么会自动为其添加`position:relative;`
-	3. 可以针对整页操作，也可以只针对特定的区域，这有助于提升性能
-	4. 如果发现背景图设为了`no-repeat`, 会自动把`scaleMode`设为`crop`代替`scale`
-	5. 可以被JS调用重新，这样可以支持用AJAX载入的HTML
+1. 支持`inline`元素和`background-image`
+2. 如果链接或表单元素没有设置`position`属性，那么会自动为其添加`position:relative;`
+3. 可以针对整页操作，也可以只针对特定的区域，这有助于提升性能
+4. 如果发现背景图设为了`no-repeat`, 会自动把`scaleMode`设为`crop`代替`scale`
+5. 可以被JS调用重新，这样可以支持用AJAX载入的HTML
 
 用法也是一样，很简单：
 
@@ -126,10 +124,10 @@ Unit PNG Fix能够让 background-repeat在ie6下工作,不过这种工作方式�
 
 * [IE PNG Fix 2.0 Alpha 4](http://www.twinhelix.com/css/iepngfix/)
 
-这一个也是用了CSS behaviors,并且只支持IE5.5和IE6。 用法跟之前介绍的差不多，都是条件注释引入，然后添加个CSS样式名称。。 
+这一个也是用了CSS behaviors,并且只支持IE5.5和IE6。 用法跟之前介绍的差不多，都是条件注释引入，然后添加个CSS样式名称。。
 
-DEMO演示地址： http://www.twinhelix.com/css/iepngfix/demo/  
-下载地址：http://www.twinhelix.com/css/iepngfix/iepngfix.zip  
+DEMO演示地址： http://www.twinhelix.com/css/iepngfix/demo/
+下载地址：http://www.twinhelix.com/css/iepngfix/iepngfix.zip
 
 * [DD_belatedPNG](http://www.dillerdesign.com/experiment/DD_belatedPNG/)
 
@@ -139,9 +137,9 @@ DEMO演示地址： http://www.twinhelix.com/css/iepngfix/demo/
 
 用法也是差不多：
 
-	1. 下载引入DD_belatedPNG
-	2. 使用JS调用：`DD_belatedPNG.fix()`， 这个方法里需要一个CSS选择器名称参数，在最新版本中，也可以同时定义多个CSS选择器，只要用逗号隔开即可~~
-	3. 它还提供另一个方法`DD_belatedPNG.fixPng( yourElement )`, 其中传入的参数是DOM对象。
+1. 下载引入DD_belatedPNG
+2. 使用JS调用：`DD_belatedPNG.fix()`， 这个方法里需要一个CSS选择器名称参数，在最新版本中，也可以同时定义多个CSS选择器，只要用逗号隔开即可~~
+3. 它还提供另一个方法`DD_belatedPNG.fixPng( yourElement )`, 其中传入的参数是DOM对象。
 
 注意：
 	1. 你不能对body元素进行操作，因为使用VML技术的原因，VML是使用兄弟DOM结点进行定位的。解决方法是为body再包一层标签，然后针对那个标签进行fix().
