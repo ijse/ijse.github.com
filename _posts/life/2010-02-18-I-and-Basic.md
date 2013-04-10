@@ -1,5 +1,6 @@
 ---
 layout: post
+title: 从Basic语言开始
 category : Life
 tags : [basic]
 ---
