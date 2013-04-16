@@ -4,6 +4,7 @@ title: "有关Jekyll的笔记"
 description: ""
 category: article
 tags: [jekyll, ruby, 中文]
+published: false
 ---
 
 {% include JB/setup %}
@@ -38,4 +39,4 @@ tags: [jekyll, ruby, 中文]
     
 # test
 
-http://cnrdn.com/4uj5
+[http://cnrdn.com/4uj5](testurl)
