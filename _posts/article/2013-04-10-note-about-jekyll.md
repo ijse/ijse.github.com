@@ -36,7 +36,3 @@ published: true
 	...
 	{{ endhighlight }}
     
-    
-# test
-
-[http://cnrdn.com/4uj5](http://cnrdn.com/4uj5)
