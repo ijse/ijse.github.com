@@ -5,6 +5,7 @@ description: ""
 category: article
 tags: [jekyll, ruby, 中文]
 ---
+
 {% include JB/setup %}
 
 # Jekyll的安装
@@ -33,4 +34,8 @@ tags: [jekyll, ruby, 中文]
 	{{ highlight html }}
 	...
 	{{ endhighlight }}
+    
+    
+# test
 
+http://cnrdn.com/4uj5
