@@ -1,11 +1,10 @@
 ---
 title: WebSocket相关笔记
 category: article
-tag: [ websocket, html5 ]
+tag: [ 'websocket', 'html5' ]
 layout: post
 published: true
 ---
-
 
 WebSocket 协议本质上是一个基于 TCP 的协议。为了建立一个 WebSocket 连接，客户端浏览器首先要向服务器发起一个 HTTP 请求，这个请求和通常的 HTTP 请求不同，包含了一些附加头信息，其中附加头信息”Upgrade: WebSocket”表明这是一个申请协议升级的 HTTP 请求，服务器端解析这些附加的头信息然后产生应答信息返回给客户端，客户端和服务器端的 WebSocket 连接就建立起来了，双方就可以通过这个连接通道自由的传递信息，并且这个连接会持续存在直到客户端或者服务器端的某一方主动的关闭连接。
 
@@ -107,4 +106,3 @@ WebSocket同样也可以发送二进制数据，可以直接send()一个Blob对�
 ## 其它一些资源
 
 在线连接Demo [http://www.websocket.org/echo.html](http://www.websocket.org/echo.html)
-
