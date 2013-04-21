@@ -1,7 +1,7 @@
 ---
 title: WebSocket相关笔记
 category: article
-tag: [ 'websocket', 'html5' ]
+tags: [websocket, html5]
 layout: post
 published: true
 ---
