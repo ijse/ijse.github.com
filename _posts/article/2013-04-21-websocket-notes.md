@@ -106,3 +106,11 @@ WebSocket同样也可以发送二进制数据，可以直接send()一个Blob对�
 ## 其它一些资源
 
 在线连接Demo [http://www.websocket.org/echo.html](http://www.websocket.org/echo.html)
+
+
+
+
+
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+BANG519DC6DD274EBBFD27076D18XIANGUO
