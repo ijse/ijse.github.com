@@ -3,7 +3,7 @@ layout: post
 title: "有关Jekyll的笔记"
 description: ""
 category: article
-tags: [jekyll, ruby, 中文]
+tags: [jekyll, ruby]
 published: true
 ---
 
@@ -35,4 +35,3 @@ published: true
 	{{ highlight html }}
 	...
 	{{ endhighlight }}
-    
