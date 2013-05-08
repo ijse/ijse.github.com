@@ -11,6 +11,8 @@ published: true
 
 # Jekyll的安装
 
+ .. . .... 自己google去~~
+
 # 中文问题
 
 无法生成页面，修改RUBY_HOME/bin/jekyll.bat，在顶部添加：
@@ -35,3 +37,11 @@ published: true
 	{{ highlight html }}
 	...
 	{{ endhighlight }}
+
+# Rakefile 命令
+
+	rake preview
+
+	rake page name=path/to/xxx.html
+
+	rake post name=directory/title tags=tag1,tag2 date=2013-05-08
