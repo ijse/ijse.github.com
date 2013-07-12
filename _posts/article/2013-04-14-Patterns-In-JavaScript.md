@@ -1,7 +1,8 @@
 ---
 layout: article
 tags: [JavaScript, pattern]
-published: false
+category: article
+published: true
 ---
 
 # Singleton 单例模式
