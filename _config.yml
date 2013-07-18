@@ -10,7 +10,7 @@ pygments: true
 # so be sure to set them if your theme uses them.
 #
 title : IJSE STU
-tagline: ---
+tagline: 
 author :
   name : ijse
   email : i@ijser.cn
