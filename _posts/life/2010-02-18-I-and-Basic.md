@@ -1,8 +1,10 @@
 ---
+published: false
 layout: post
 title: 从Basic语言开始
-category : Life
-tags : [basic]
+category: Life
+tags: 
+  - basic
 ---
 
 在小学的时候，迷上了电脑，爸给买了台“小霸王”学习机，附带的学习卡上有两个编程工具：G-BASIC和F-BASIC，这就是我的第一次接触的编程软件，很老很老的。
@@ -33,4 +35,3 @@ tags : [basic]
 
 
 我最后用VB写的软件，是在大一给学校党委陈老师写的党员信息管理系统，再以后，也许不会再用VB了。
-
