@@ -131,8 +131,7 @@ prose:
   metadata:
     _posts/articles: |
       published: false
-      layout: article
-      title: Your Post Title
+      layout: post
+      title: Unnamed
       author: ijse
-      categories:
-      - articles
+      categories: articles
