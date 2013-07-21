@@ -20,12 +20,18 @@
     <div class="wrapper">
       <header>
         <h1 class="header"><a href="{{ HOME_PATH }}">{{ site.title }}</a></h1>
+
+        {% comment %}
         <p class="header">{{ site.tagline }}</p>
+        
         <ul>
           {% assign pages_list = site.pages %}
           {% assign group = 'navigation' %}
           {% include JB/pages_list %}
         </ul>
+        {% endcomment %}
+
+
         {% if site.ads.google %}
         <div class="misc ad">
           <script type="text/javascript"><!--
@@ -40,7 +46,9 @@
         {% endif %}
         {% if site.author %}
         <div class="misc vcard">
+          {% comment %}
           <h4>about</h4>
+          {% endcomment %}
           <ul>
             {% comment %}
             {% if site.author.email %}
