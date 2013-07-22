@@ -1,9 +1,13 @@
 ---
-layout: article
+title: "JavaScript的设计模式"
+layout: post
 tags: [JavaScript, pattern]
 category: article
-published: true
+published: false
 ---
+
+{% include JB/setup %}
+
 
 # Singleton 单例模式
 

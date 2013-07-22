@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1" />
     <meta name="author" content="{{ site.author.name }}" />
     <title>{{ page.title }}</title>
+    
+    <meta property="qc:admins" content="1537070717612352636" />
 
     <link rel="stylesheet" href="{{ ASSET_PATH }}/css/styles.css">
     <link rel="stylesheet" href="{{ ASSET_PATH }}/css/pygment_trac.css">
@@ -20,12 +22,18 @@
     <div class="wrapper">
       <header>
         <h1 class="header"><a href="{{ HOME_PATH }}">{{ site.title }}</a></h1>
+
+        {% comment %}
         <p class="header">{{ site.tagline }}</p>
+        
         <ul>
           {% assign pages_list = site.pages %}
           {% assign group = 'navigation' %}
           {% include JB/pages_list %}
         </ul>
+        {% endcomment %}
+
+
         {% if site.ads.google %}
         <div class="misc ad">
           <script type="text/javascript"><!--
@@ -40,7 +48,9 @@
         {% endif %}
         {% if site.author %}
         <div class="misc vcard">
+          {% comment %}
           <h4>about</h4>
+          {% endcomment %}
           <ul>
             {% comment %}
             {% if site.author.email %}
