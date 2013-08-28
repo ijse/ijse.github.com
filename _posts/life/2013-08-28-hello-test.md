@@ -1,7 +1,7 @@
 ---
 category: life
 layout: post
-published: false
+published: true
 title: Hello Test
 "": teest
 tags: 
