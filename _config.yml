@@ -170,7 +170,7 @@ prose:
               value: "life"
       - name: "tags"
         field:
-          element: "select"
+          element: "Multiselect"
           label: "标签"
           alterable: true
           options:
