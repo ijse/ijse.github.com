@@ -172,6 +172,7 @@ prose:
         field:
           element: "multiselect"
           label: "标签"
+          alterable: true
           options:
             - name: "算法"
               value: "Algorithm"
