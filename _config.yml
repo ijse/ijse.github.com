@@ -135,14 +135,12 @@ prose:
       - name: "title"
         field:
           element: "text"
-          label: "标题"
+          label: "Title"
           value: ""
-
       - name: "layout"
         field:
           element: "hidden"
           value: "post"
-
       # - name: "layout"
       #   field:
       #     element: "select"
