@@ -138,6 +138,13 @@ prose:
           label: "Title"
           value: ""
 
+    _posts/life:
+      - name: "title"
+        field:
+          element: "text"
+          label: "Title"
+          value: ""
+
       - name: "layout"
         field:
           element: "hidden"
@@ -146,7 +153,7 @@ prose:
       - name: "category"
         field:
           element: "hidden"
-          value: "undefined"
+          value: "life"
 
       - name: "tags"
         field:
@@ -155,19 +162,12 @@ prose:
           alterable: true
           placeholder: "Choose Tags"
           options:
-            - name: "原创"
-              value: "originality"
-            - name: "翻译"
-              value: "translated"
+            - name: "随笔"
+              value: "随笔"
+            - name: "养性"
+              value: "养性"
             - name: "转载"
               value: "reprinted"
-
-    _posts/life:
-      - name: "title"
-        field:
-          element: "text"
-          label: "Title"
-          value: ""
 
     _posts/article:
       - name: "title"
