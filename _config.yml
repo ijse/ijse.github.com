@@ -136,6 +136,7 @@ prose:
         field:
           element: "hidden"
           value: "post"
+
       # - name: "layout"
       #   field:
       #     element: "select"
@@ -148,6 +149,7 @@ prose:
         field:
           element: "hidden"
           value: "article"
+
       - name: "tags"
         field:
           element: "multiselect"
