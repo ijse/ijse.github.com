@@ -158,12 +158,23 @@ prose:
           label: "模板"
           options:
             - name: "文章"
-            - value: "post"
-  
+              value: "post"
       - name: "category"
         field:
           element: "select"
           label: "目录"
           options:
-            - name: "article"
-            - value: "article"
+            - name: "技术文章"
+              value: "article"
+            - name: "生活随笔"
+              value: "life"
+      - name: "tags"
+        field:
+          element: "select"
+          label: "标签"
+          alterable: true
+          options:
+            - name: "算法"
+              value: "Algorithm"
+            - name: "收藏"
+              value: "collection"
