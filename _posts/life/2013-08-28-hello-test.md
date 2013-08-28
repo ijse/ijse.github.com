@@ -8,8 +8,6 @@ tags:
   - teest
 ---
 
-
-
 Enter text in [Markdown](http://daringfireball.net/projects/markdown/). Use the toolbar above, or click the **?** button for formatting help.
 
-![cat](/_posts/imgs/8%E6%9C%AA%E5%91%BD855%E5%90%8D.jpg)
+![](/assets/images/52%E6%9C%AA%E5%91%BD%E5%90%8D.png)
