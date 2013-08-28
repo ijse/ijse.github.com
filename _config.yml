@@ -132,6 +132,12 @@ prose:
   siteurl: "http://www.ijser.cn/"
   metadata:
     _posts/article:
+      - name: "title"
+        field:
+          element: "text"
+          label: "标题"
+          value: ""
+
       - name: "layout"
         field:
           element: "hidden"
