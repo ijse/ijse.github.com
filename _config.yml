@@ -132,10 +132,26 @@ prose:
   siteurl: "http://www.ijser.cn/"
   metadata:
     _posts:
-      -
+      - name: "title"
+        field:
+          element: "text"
+          label: "Title"
+          value: ""
+
     _posts/life:
-      -
+      - name: "title"
+        field:
+          element: "text"
+          label: "Title"
+          value: ""
+
     _posts/article:
+      - name: "title"
+        field:
+          element: "text"
+          label: "Title"
+          value: ""
+
       - name: "layout"
         field:
           element: "hidden"
