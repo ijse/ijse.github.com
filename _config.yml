@@ -132,35 +132,26 @@ prose:
   siteurl: "http://www.ijser.cn/"
   metadata:
     _posts/article:
-      # - name: "layout"
-      #   field:
-      #     element: "hidden"
-      #     value: "post"
-
-      # - name: "layout"
-      #   field:
-      #     element: "select"
-      #     label: "模板"
-      #     selected: "post"
-      #     options:
-      #       - name: "文章"
-      #         value: "post"
+      - name: "layout"
+        field:
+          element: "hidden"
+          value: "post"
 
       - name: "category"
         field:
           element: "hidden"
           value: "article"
 
-      # - name: "tags"
-      #   field:
-      #     element: "multiselect"
-      #     label: "标签"
-      #     alterable: true
-      #     placeholder: "Choose Tags"
-      #     options:
-      #       - name: "原创"
-      #         value: "originality"
-      #       - name: "翻译"
-      #         value: "translated"
-      #       - name: "转载"
-      #         value: "reprinted"
+      - name: "tags"
+        field:
+          element: "multiselect"
+          label: "标签"
+          alterable: true
+          placeholder: "Choose Tags"
+          options:
+            - name: "原创"
+              value: "originality"
+            - name: "翻译"
+              value: "translated"
+            - name: "转载"
+              value: "reprinted"
