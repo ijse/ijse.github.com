@@ -168,6 +168,7 @@ prose:
               value: "article"
             - name: "生活随笔"
               value: "life"
+      - name: "tags"
   ###
 #       - name: "tags"
 #         field:
