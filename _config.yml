@@ -127,11 +127,43 @@ JB :
   # where [HELPER] is the name of the helper you are overriding.
 
 prose:
+  media: 'assets'
   rooturl: "_posts"
+  siteurl: "http://www.ijser.cn/"
   metadata:
-    _posts/articles: |
-      published: false
-      layout: post
-      title: Unnamed
-      author: ijse
-      categories: article
+    _posts/article:
+      - name: "title"
+        field:
+          element: "text"
+          label: "Title"
+          value: ""
+      - name: "meta-title"
+        field:
+          element: "text"
+          label: "Meta Title"
+          value: ""
+      - name: "meta-description"
+        field:
+          element: "text"
+          label: "Meta Description" 
+          value: ""
+      - name: "title-short"
+        field:
+          element: "text"
+          label: "Title Short"
+          value: ""
+      - name: "layout"
+        field:
+          element: "select"
+          label: "模板"
+          options:
+            - name: "文章"
+            - value: "post"
+  
+      - name: "category"
+        field:
+          element: "select"
+          label: "目录"
+          options:
+            - name: "article"
+            - value: "article"
