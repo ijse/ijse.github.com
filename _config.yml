@@ -175,8 +175,4 @@ prose:
         field:
           element: "multiselect"
           label: "标签"
-          placeholder: ""
           alterable: true
-          options:
-
-
