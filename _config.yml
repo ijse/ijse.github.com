@@ -127,7 +127,7 @@ JB :
   # where [HELPER] is the name of the helper you are overriding.
 
 prose:
-  media: 'resources'
+  media: "resources"
   rooturl: "_posts"
   siteurl: "http://www.ijser.cn/"
   metadata:
@@ -145,6 +145,7 @@ prose:
       #     options:
       #       - name: "文章"
       #         value: "post"
+
       - name: "category"
         field:
           element: "hidden"
