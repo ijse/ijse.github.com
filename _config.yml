@@ -131,16 +131,20 @@ prose:
   rooturl: "_posts"
   siteurl: "http://www.ijser.cn/"
   metadata:
+    _posts:
+      -
+    _posts/life:
+      -
     _posts/article:
       - name: "layout"
-      #   field:
-      #     element: "hidden"
-      #     value: "post"
+        field:
+          element: "hidden"
+          value: "post"
 
-      # - name: "category"
-      #   field:
-      #     element: "hidden"
-      #     value: "article"
+      - name: "category"
+        field:
+          element: "hidden"
+          value: "article"
 
       - name: "tags"
         field:
