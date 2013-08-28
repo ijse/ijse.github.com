@@ -138,12 +138,24 @@ prose:
           label: "Title"
           value: ""
 
+      - name: "published"
+        field:
+          element: "checkbox"
+          label: "发布"
+          value: false
+
     _posts/life:
       - name: "title"
         field:
           element: "text"
           label: "Title"
           value: ""
+
+      - name: "published"
+        field:
+          element: "checkbox"
+          label: "发布"
+          value: true
 
       - name: "layout"
         field:
@@ -175,6 +187,12 @@ prose:
           element: "text"
           label: "Title"
           value: ""
+
+      - name: "published"
+        field:
+          element: "checkbox"
+          label: "发布"
+          value: true
 
       - name: "layout"
         field:
