@@ -168,13 +168,15 @@ prose:
               value: "article"
             - name: "生活随笔"
               value: "life"
-      - name: "tags"
-        field:
-          element: "multiselect"
-          label: "标签"
-          alterable: true
-          options:
-            - name: "算法"
-              value: "Algorithm"
-            - name: "收藏"
-              value: "collection"
+  ###
+#       - name: "tags"
+#         field:
+#           element: "multiselect"
+#           label: "标签"
+#           alterable: true
+#           options:
+#             - name: "算法"
+#               value: "Algorithm"
+#             - name: "收藏"
+#               value: "collection"
+# ###
