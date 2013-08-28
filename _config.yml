@@ -132,10 +132,10 @@ prose:
   siteurl: "http://www.ijser.cn/"
   metadata:
     _posts/article:
-      - name: "layout"
-        field:
-          element: "hidden"
-          value: "post"
+      # - name: "layout"
+      #   field:
+      #     element: "hidden"
+      #     value: "post"
 
       # - name: "layout"
       #   field:
@@ -146,10 +146,10 @@ prose:
       #       - name: "文章"
       #         value: "post"
 
-      # - name: "category"
-      #   field:
-      #     element: "hidden"
-      #     value: "article"
+      - name: "category"
+        field:
+          element: "hidden"
+          value: "article"
 
       # - name: "tags"
       #   field:
