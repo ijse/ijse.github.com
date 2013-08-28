@@ -10,4 +10,4 @@ tags:
 
 Enter text in [Markdown](http://daringfireball.net/projects/markdown/). Use the toolbar above, or click the **?** button for formatting help.
 
-![](/assets/images/52%E6%9C%AA%E5%91%BD%E5%90%8D.png)
+![](/assets/images/20ujyhtgrf00.gif)
