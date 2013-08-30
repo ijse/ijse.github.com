@@ -1,7 +1,7 @@
 ---
 category: life
 layout: post
-published: true
+published: false
 title: Hello Test
 tags: 
   - 随笔
