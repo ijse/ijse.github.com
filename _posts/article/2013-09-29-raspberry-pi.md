@@ -37,7 +37,7 @@ Raspberry Pi 手记
 
 # 网络设置
 
-raspbian其实是基于Debian系统的修改版本，网络配置什么的跟Linux都差不多。
+raspbian其实是基于Debian系统的修改版本，网络配置什么的跟Linux都差不多。  
 
 可以使用ifconfig命令，但这通常只是用作临时，重启后就失效了。另外还可以修改文件`/etc/network/interface`
 
@@ -46,7 +46,6 @@ raspbian其实是基于Debian系统的修改版本，网络配置什么的跟Lin
 ```
 auto lo
 iface lo inet loopback
-
 auto eth0
 iface eth0 inet static
 	address 192.168.20.87
@@ -54,7 +53,7 @@ iface eth0 inet static
 	netmask 255.255.255.0
 	broadcast 192.168.20.255
 	gateway 192.168.20.1
-
 …
 ```
+
 其它内容默认即可，文件保存后，可以使用命令`sudo service networking restart` 重启网络服务，这时候就应该可以联上网了。
