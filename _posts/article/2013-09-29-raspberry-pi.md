@@ -44,16 +44,16 @@ raspbian其实是基于Debian系统的修改版本，网络配置什么的跟Lin
 由于我是在宾馆搞的，又忘了拿无线网卡，所以只能插网线了，下面是配的是静态网络：
 
 ```
-auto lo
-iface lo inet loopback
-auto eth0
-iface eth0 inet static
-	address 192.168.20.87
-	network 192.168.20.0
-	netmask 255.255.255.0
-	broadcast 192.168.20.255
-	gateway 192.168.20.1
-…
+	auto lo
+	iface lo inet loopback
+	auto eth0
+	iface eth0 inet static
+		address 192.168.20.87
+		network 192.168.20.0
+		netmask 255.255.255.0
+		broadcast 192.168.20.255
+		gateway 192.168.20.1
+	…
 ```
 
 其它内容默认即可，文件保存后，可以使用命令`sudo service networking restart` 重启网络服务，这时候就应该可以联上网了。
