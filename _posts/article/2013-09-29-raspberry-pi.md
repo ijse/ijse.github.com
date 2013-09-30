@@ -3,7 +3,6 @@ category: article
 layout: post
 published: true
 title: Raspberry Pi 手记
-"": RPI
 tags: 
   - RPI
 ---
