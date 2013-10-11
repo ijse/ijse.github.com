@@ -165,9 +165,8 @@ prose:
 
       - name: "categories"
         field:
-          element: "multiselect"
+          element: "text"
           label: "类别"
-          alterable: true
 
       - name: "date"
         field:
