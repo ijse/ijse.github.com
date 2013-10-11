@@ -136,3 +136,53 @@ prose:
         field:
           element: "hidden"
           value: "post"
+
+      - name: "published"
+        field:
+          element: "checkbox"
+          label: "是否发布"
+          value: false
+
+      - name: "title"
+        field:
+          element: "text"
+          label: "Title"
+          value: ""
+
+      - name: "title"
+        field:
+          element: "text"
+          label: "标题"
+          value: ""
+
+      - name: "author"
+        field:
+          element: "text"
+          label: "作者"
+          value: "ijse"
+          type: "text"
+
+      - name: "category"
+        field:
+          element: "text"
+          label: "类别"
+          value: "article"
+
+      - name: "date"
+        field:
+          label: "日期"
+          element: "text"
+          value: ""
+
+      - name: "comments"
+        field:
+          element: "checkbox"
+          label: "开启评论"
+          value: true
+
+      - name: "tags"
+        field:
+          element: "multiselect"
+          label: "标签"
+          placeholder: "Choose Tags"
+          alterable: true
