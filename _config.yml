@@ -133,7 +133,6 @@ prose:
   siteurl: "http://www.ijser.cn/"
   metadata:
     _posts:
-
       - name: "layout"
         field:
           element: "hidden"
@@ -157,14 +156,12 @@ prose:
           element: "text"
           label: "作者"
           value: "ijse"
-          placeholder: "ijse"
           type: "text"
 
-      - name: "category"
+      - name: "categories"
         field:
           element: "multiselect"
           label: "类别"
-          placeholder: "Choose Tags"
           alterable: true
 
       - name: "date"
