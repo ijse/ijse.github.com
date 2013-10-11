@@ -136,10 +136,3 @@ prose:
         field:
           element: "hidden"
           value: "post"
-
-      - name: "published"
-        field:
-          element: "button"
-          label: "是否发布"
-          on: "发布"
-          off: "不发布"
