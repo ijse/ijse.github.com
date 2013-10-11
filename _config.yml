@@ -126,6 +126,7 @@ JB :
   #   ./_includes/custom/[HELPER]
   # where [HELPER] is the name of the helper you are overriding.
 
+
 prose:
   media: 'assets/images'
   rooturl: "_posts"
@@ -140,15 +141,10 @@ prose:
 
       - name: "published"
         field:
-          element: "checkbox"
+          element: "button"
           label: "发布"
-          value: false
-
-      - name: "title"
-        field:
-          element: "text"
-          label: "Title"
-          value: ""
+          on: "发布"
+          off: "不发布"
 
       - name: "title"
         field:
@@ -166,10 +162,11 @@ prose:
 
       - name: "category"
         field:
+          element: "multiselect"
           label: "类别"
-          element: "text"
-          value: "未分类"
- 
+          placeholder: "Choose Tags"
+          alterable: true
+
       - name: "date"
         field:
           label: "日期"
@@ -185,6 +182,6 @@ prose:
       - name: "tags"
         field:
           element: "multiselect"
-          label: "Add Tags"
+          label: "标签"
           placeholder: "Choose Tags"
           alterable: true
