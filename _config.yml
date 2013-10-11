@@ -140,9 +140,9 @@ prose:
       - name: "published"
         field:
           element: "button"
-          label: "公开"
-          on: true
-          off: false
+          label: "是否发布"
+          on: "发布"
+          off: "不发布"
 
       - name: "title"
         field:
@@ -178,7 +178,7 @@ prose:
         field:
           element: "checkbox"
           label: "Comments"
-          value: "true"
+          value: true
 
       - name: "tags"
         field:
