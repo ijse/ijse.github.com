@@ -162,27 +162,3 @@ prose:
           label: "作者"
           value: "ijse"
           type: "text"
-
-      - name: "categories"
-        field:
-          element: "text"
-          label: "类别"
-
-      - name: "date"
-        field:
-          label: "日期"
-          element: "text"
-          value: ""
-
-      - name: "comments"
-        field:
-          element: "checkbox"
-          label: "Comments"
-          value: true
-
-      - name: "tags"
-        field:
-          element: "multiselect"
-          label: "标签"
-          placeholder: "Choose Tags"
-          alterable: true
