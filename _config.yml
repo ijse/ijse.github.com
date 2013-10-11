@@ -132,11 +132,11 @@ prose:
   siteurl: "http://www.ijser.cn/"
   metadata:
     _posts:
-      - name: "title"
+
+      - name: "layout"
         field:
-          element: "text"
-          label: "Title"
-          value: ""
+          element: "hidden"
+          value: "post"
 
       - name: "published"
         field:
@@ -144,76 +144,41 @@ prose:
           label: "发布"
           value: false
 
-    _posts/life:
       - name: "title"
         field:
           element: "text"
           label: "Title"
           value: ""
 
-      - name: "published"
-        field:
-          element: "checkbox"
-          label: "发布"
-          value: true
-
-      - name: "layout"
-        field:
-          element: "hidden"
-          value: "post"
-
-      - name: "category"
-        field:
-          element: "hidden"
-          value: "life"
-
-      - name: "tags"
-        field:
-          element: "multiselect"
-          label: "标签"
-          alterable: true
-          placeholder: "Choose Tags"
-          options:
-            - name: "随笔"
-              value: "随笔"
-            - name: "养性"
-              value: "养性"
-            - name: "转载"
-              value: "reprinted"
-
-    _posts/article:
-      - name: "title"
+      - name: "author"
         field:
           element: "text"
-          label: "Title"
-          value: ""
-
-      - name: "published"
-        field:
-          element: "checkbox"
-          label: "发布"
-          value: true
-
-      - name: "layout"
-        field:
-          element: "hidden"
-          value: "post"
+          label: "Author"
+          value: "ijse"
+          placeholder: "ijse"
+          type: "text"
 
       - name: "category"
         field:
-          element: "hidden"
-          value: "article"
+          label: "类别"
+          element: "text"
+          value: "未分类"
+ 
+      - name: "date"
+        field:
+          label: "日期"
+          element: "text"
+          value: ""
+
+      - name: "comments"
+        field:
+          element: checkbox
+          label: "Comments"
+          value: "true"
 
       - name: "tags"
         field:
           element: "multiselect"
-          label: "标签"
-          alterable: true
+          label: "Add Tags"
           placeholder: "Choose Tags"
-          options:
-            - name: "原创"
-              value: "originality"
-            - name: "翻译"
-              value: "translated"
-            - name: "转载"
-              value: "reprinted"
+          alterable: true
