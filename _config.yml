@@ -143,22 +143,3 @@ prose:
           label: "是否发布"
           on: "发布"
           off: "不发布"
-
-      - name: "title"
-        field:
-          element: "text"
-          label: "Title"
-          value: ""
-
-      - name: "title"
-        field:
-          element: "text"
-          label: "标题"
-          value: ""
-
-      - name: "author"
-        field:
-          element: "text"
-          label: "作者"
-          value: "ijse"
-          type: "text"
