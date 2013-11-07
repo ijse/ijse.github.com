@@ -3,8 +3,10 @@ layout: post
 published: false
 title: Quantum physics Notes
 author: ijse
-category: article
+category: 读书笔记
 comments: true
+tags: 
+  - physics
 ---
 
 上帝掷骰子吗：量子物理史话曹天元
