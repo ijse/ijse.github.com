@@ -1,7 +1,7 @@
 ---
 layout: post
 published: false
-title: Quantum physics Notes
+title: 《量子物理史话》笔记
 author: ijse
 category: 读书笔记
 comments: true
