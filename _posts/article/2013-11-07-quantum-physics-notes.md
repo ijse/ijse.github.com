@@ -1,6 +1,6 @@
 ---
 layout: post
-published: false
+published: true
 title: 《量子物理史话》笔记
 author: ijse
 category: 读书笔记
