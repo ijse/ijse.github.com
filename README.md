@@ -1,4 +1,4 @@
 My blog
 =====
 
-Use jekyll and Github. click: http://www.ijser.cn
+Please visit: http://www.ijser.cn
