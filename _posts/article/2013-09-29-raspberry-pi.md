@@ -1,10 +1,11 @@
 ---
-category: article
-layout: post
-published: true
 title: Raspberry Pi 手记
-tags: 
-  - RPI
+date: 2013-09-29 00:00:00 Z
+categories:
+- article
+tags:
+- RPI
+layout: post
 ---
 
 Raspberry Pi 手记

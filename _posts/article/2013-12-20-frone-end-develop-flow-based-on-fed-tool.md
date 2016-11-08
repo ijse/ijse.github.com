@@ -1,9 +1,11 @@
 ---
-layout: post
+title: Frone-end develop flow based on FED tool
+date: 2013-12-20 00:00:00 Z
 published: false
-title: "Frone-end develop flow based on FED tool"
+categories:
+- article
+layout: post
 author: ijse
-category: article
 comments: true
 ---
 

@@ -1,8 +1,9 @@
 ---
-category: article
-layout: post
-published: true
 title: 给Raspberry Pi添加RTC模块
+date: 2013-09-30 00:00:00 Z
+categories:
+- article
+layout: post
 ---
 
 Raspberry Pi 默认是没有RTC的，系统设置的时间在断电后便会丢失，再次开机时又会回到1970年。通常让RPI保存时间的办法有两个：

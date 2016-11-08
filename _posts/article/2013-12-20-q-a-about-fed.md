@@ -1,9 +1,10 @@
 ---
+title: Q&A about FED
+date: 2013-12-20 00:00:00 Z
+categories:
+- article
 layout: post
-published: true
-title: "Q&A about FED"
 author: ijse
-category: article
 comments: true
 ---
 

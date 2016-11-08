@@ -1,10 +1,14 @@
 ---
+title: IE6 下PNG图片不能半透明BUG
+date: 2013-03-24 00:00:00 Z
+categories:
+- article
+tags:
+- css
+- png
+- bug
 layout: post
-title: "IE6 下PNG图片不能半透明BUG"
-description: ""
-category:  article
-tags: [css, png, bug]
-published: true
+description: ''
 ---
 
 {% include JB/setup %}

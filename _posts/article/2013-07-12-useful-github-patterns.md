@@ -1,10 +1,15 @@
 ---
+title: 一些常见的GITHUB模式
+date: 2013-07-12 00:00:00 Z
+categories:
+- article
+tags:
+- github
+- git
 layout: post
-title: "一些常见的GITHUB模式"
-description: ""
-category: article
-tags: [github, git]
+description: ''
 ---
+
 {% include JB/setup %}
 
 source: [http://blog.quickpeople.co.uk/2013/07/10/useful-github-patterns/]()

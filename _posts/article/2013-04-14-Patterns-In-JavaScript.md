@@ -1,9 +1,13 @@
 ---
-title: "JavaScript的设计模式"
-layout: post
-tags: [JavaScript, pattern]
-category: article
+title: JavaScript的设计模式
+date: 2013-04-14 00:00:00 Z
 published: false
+categories:
+- article
+tags:
+- JavaScript
+- pattern
+layout: post
 ---
 
 {% include JB/setup %}

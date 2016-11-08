@@ -1,10 +1,13 @@
 ---
-layout: post
 title: 开始新的博客
-category : Life
-tagline: "Supporting tagline"
-tags : [jekyll, blog]
-published: true
+date: 2013-03-24 00:00:00 Z
+categories:
+- Life
+tags:
+- jekyll
+- blog
+layout: post
+tagline: Supporting tagline
 ---
 
 {% include JB/setup %}

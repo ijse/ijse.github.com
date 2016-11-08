@@ -1,10 +1,13 @@
 ---
+title: 有关Jekyll的笔记
+date: 2013-04-10 00:00:00 Z
+categories:
+- article
+tags:
+- jekyll
+- ruby
 layout: post
-title: "有关Jekyll的笔记"
-description: ""
-category: article
-tags: [jekyll, ruby]
-published: true
+description: ''
 ---
 
 {% include JB/setup %}

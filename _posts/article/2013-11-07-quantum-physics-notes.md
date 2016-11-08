@@ -1,12 +1,13 @@
 ---
+title: "《量子物理史话》笔记"
+date: 2013-11-07 00:00:00 Z
+categories:
+- 读书笔记
+tags:
+- physics
 layout: post
-published: true
-title: 《量子物理史话》笔记
 author: ijse
-category: 读书笔记
 comments: true
-tags: 
-  - physics
 ---
 
 上帝掷骰子吗：量子物理史话曹天元
