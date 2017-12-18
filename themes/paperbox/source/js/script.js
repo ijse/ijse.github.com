@@ -26,32 +26,6 @@
   });
   /*toTop end*/
 
-  /*cubeRotate start*/
-  var isIE = function(){
-	return ("ActiveXObject" in window);
-  };
-  if( isIE() ) {
-    $('#contenedor').hide();
-  } else {
-    var cube = $('.cube'),
-        offset = $('#contenedor').offset(),
-        offsetleft = (offset.left + 50),
-        offsettop = (offset.top + 50);
-
-    cube.on({
-      mousemove: function(e) {
-        $(this).css('transform','rotateX(' + (e.pageY - offsettop) + 'deg) rotateY(' + (e.pageX - offsetleft) + 'deg)');
-        $(this).addClass('noanimar').removeClass('animar');
-      },
-      mouseout: function() {
-        $(this).css('transform','rotateX(-25deg) rotateY(32deg)');
-        $(this).addClass('animar').removeClass('noanimar');
-      }
-    });
-    // console.log('x=' + offsetleft + ', y=' + offsettop);
-  }
-  /* cubeRotate end*/
-
   // Share
   $('body').on('click', function(){
     $('.article-share-box.on').removeClass('on');

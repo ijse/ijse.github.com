@@ -12,21 +12,7 @@
 <% } %>
 <!-- swiftype search end -->
 
-<% if (config.duoshuo_shortname || theme.duoshuo_shortname){ %>
-<!-- duoshuo start -->
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"<%= config.duoshuo_shortname || theme.duoshuo_shortname %>"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0]
-     || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-  </script>
-<!-- duoshuo end -->
-<% } else if (config.disqus_shortname){ %>
+<% if (config.disqus_shortname){ %>
 <script>
   var disqus_shortname = '<%= config.disqus_shortname %>';
   <% if (page.permalink){ %>
@@ -42,9 +28,9 @@ var duoshuoQuery = {short_name:"<%= config.duoshuo_shortname || theme.duoshuo_sh
 </script>
 <% } %>
 
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery/2.0.3/jquery.min.js"></script>
 
-<script src="//cdnjs.cloudflare.com/ajax/libs/lrsjng.jquery-qrcode/0.12.0/jquery.qrcode.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
 
 <% if ((config.fancybox || theme.fancybox)){ %>
   <%- css('fancybox/jquery.fancybox') %>

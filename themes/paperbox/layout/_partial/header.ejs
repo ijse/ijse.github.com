@@ -19,21 +19,10 @@
         </h1>
       <% } %>
     </div>
-    <div id="contenedor">
-      <ul class="cube">
-        <li class="cara"><%= theme.logo_title %></li>
-        <li class="cara"></li>
-        <li class="cara"></li>
-        <li class="cara"></li>
-        <li class="cara"></li>
-        <li class="cara"></li>
-      </ul>
-    </div>
     <nav id="main-nav">
       <% for (var i in theme.menu){ %>
         <a class="main-nav-link" href="<%- url_for(theme.menu[i]) %>"><%= i %></a>
       <% } %>
-      <a class="main-nav-link st-search-show-outputs">Search</a>
     </nav>
   </div>
 </header>
