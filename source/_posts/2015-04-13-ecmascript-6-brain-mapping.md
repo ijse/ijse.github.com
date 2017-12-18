@@ -13,4 +13,4 @@ ECMAScript 6, 新名称是ECMAScript 2015, 是新版本的JavaScript标准，目
 
 <!--more-->
 
-<img class="alignnone size-full wp-image-49" src="https://ijser.cn/wp-content/uploads/2015/04/t-1.png" alt="es2015" width="2132" height="4554" />
+<img class="alignnone size-full wp-image-49" src="/uploads/t-1.png" alt="es2015" width="2132" height="4554" />

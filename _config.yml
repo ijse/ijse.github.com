@@ -5,19 +5,10 @@
 # Site
 title: ijse blog
 subtitle:
-description:
+description: ijse blog
 author: ijse
-language: zh-cn
+language: zh-Hans
 timezone: Asia/Shanghai
-
-theme_config:
-    logo_title: ijse blog
-    blog_title: ijse blog
-    github: https://github.com/ijse
-
-    wx_block: true
-    twitter: ijse
-    toc: true
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
@@ -51,7 +42,7 @@ highlight:
   line_number: true
   auto_detect: false
   tab_replace:
-  
+
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
 # per_page: Posts displayed per page. (0 = disable pagination)
@@ -60,7 +51,7 @@ index_generator:
   path: ''
   per_page: 10
   order_by: -date
-  
+
 # Category & Tag
 default_category: uncategorized
 category_map:
@@ -81,7 +72,8 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: paperbox
+#theme: paperbox
+theme: next
 
 feed:
     type: atom

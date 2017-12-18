@@ -8,7 +8,7 @@ layout: post
 published: true
 ---
 在一些需求场景中，给定一个固定尺寸的容器，里面文字尺寸随内容的长短自动调整尺寸，以最大化显示，如下效果：
-<p id="pDWHWzf"><img class="alignnone size-full wp-image-221 " src="https://ijser.cn/wp-content/uploads/2017/05/img_591eb340c4cdc.png" alt="" /></p>
+<p id="pDWHWzf"><img class="alignnone size-full wp-image-221 " src="/uploads/img_591eb340c4cdc.png" alt="" /></p>
 <!--more-->
 
 如果容器尺寸及内容都是不确定的动态值，CSS3 并没有直接可以实现的属性，所以估计需要借助JS，一般思路是：
@@ -54,8 +54,8 @@ JS代码获取SVG和TEXT的尺寸，然后对fontSize做调整。如果不希望
 
 当SVG的尺寸变化时，需要重新调用<code>updateSize()进行重绘，当然，也可以通过监听DOMSubtreeModified事件实现当text变化时自动调用。</code>
 
-<img class="size-full wp-image-223 aligncenter" src="https://ijser.cn/wp-content/uploads/2017/05/img_591ef02208660.png" alt="" />
-<p id="kxzamgw"><img class="size-full wp-image-224 aligncenter" src="https://ijser.cn/wp-content/uploads/2017/05/img_591ef041ba204.png" alt="" /></p>
+<img class="size-full wp-image-223 aligncenter" src="/uploads/img_591ef02208660.png" alt="" />
+<p id="kxzamgw"><img class="size-full wp-image-224 aligncenter" src="/uploads/img_591ef041ba204.png" alt="" /></p>
 
 <h1>Canvas 方案</h1>
 这种方案理论上也是可以实现，但相比SVG方案也并不会简单太多。思路大致是：

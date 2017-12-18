@@ -29,14 +29,14 @@ vuex 对于一般复杂的前端组件共享数据是没什么问题的，但是
 官网：http://reactivex.io/rxjs
 
 Dash Docset: https://github.com/royling/rxjs.docset
-<p id="JuCraDs"><img class="alignnone size-full wp-image-191 " src="https://ijser.cn/wp-content/uploads/2017/04/img_5901888379484.png" alt="" /></p>
+<p id="JuCraDs"><img class="alignnone size-full wp-image-191 " src="/uploads/img_5901888379484.png" alt="" /></p>
 
 <h2>V4 vs V5</h2>
 GitHub中主要有两个RxJS版本实现，分别是：
 <ul>
  	<li>V4： https://github.com/Reactive-Extensions/RxJS</li>
  	<li>V5：https://github.com/ReactiveX/rxjs
-<p id="wlHVZCg"><img class="alignnone size-full wp-image-193 " src="https://ijser.cn/wp-content/uploads/2017/04/img_5901c770e13e6.png" alt="" /></p>
+<p id="wlHVZCg"><img class="alignnone size-full wp-image-193 " src="/uploads/img_5901c770e13e6.png" alt="" /></p>
 </li>
 </ul>
 V5是最新的版本，二者在思想方面是一致的，V5版本主要优点是：
@@ -81,7 +81,7 @@ V5是最新的版本，二者在思想方面是一致的，V5版本主要优点�
 上面只是举例，实际RxJS提供了非常多的方法。
 
 这里有一个非常棒的在线工具，将每个方法(operator)用marbles图画演示出来：
-<p id="fjcWFRQ"><img class="alignnone size-full wp-image-200 " src="https://ijser.cn/wp-content/uploads/2017/04/img_5901e60e51254.png" alt="" /></p>
+<p id="fjcWFRQ"><img class="alignnone size-full wp-image-200 " src="/uploads/img_5901e60e51254.png" alt="" /></p>
 http://rxmarbles.com/
 <h2>调试</h2>
 在Devtools中调试异步代码通常都比较痛苦，目前可能最有效的方法仍是<code>console.log:</code>
