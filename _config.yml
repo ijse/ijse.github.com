@@ -10,6 +10,14 @@ author: ijse
 language: zh-cn
 timezone: Asia/Shanghai
 
+theme_config:
+    logo_title: ijse blog
+    blog_title: ijse blog
+    github: https://github.com/ijse
+
+    wx_block: true
+    twitter: ijse
+
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: http://www.ijser.cn
@@ -72,9 +80,11 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: paperbox
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type:
+  type: git
+  repo: git@github.com:ijse/ijse.github.com.git
+  branch: master
