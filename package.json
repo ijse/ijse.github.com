@@ -17,6 +17,7 @@
     "@vssue/vuepress-plugin-vssue": "^0.6.0",
     "@vuepress/plugin-blog": "^1.0.0-alpha.0",
     "@vuepress/plugin-last-updated": "^1.0.0-alpha.0",
+    "@vuepress/plugin-medium-zoom": "^1.0.0-alpha.0",
     "prismjs": "^1.15.0",
     "timeago.js": "^4.0.0-beta.2",
     "vuepress": "^1.0.0-alpha.36"
