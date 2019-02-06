@@ -8,7 +8,7 @@
       />
     </h1>
     <Content />
-    <Vssue title="Comments" />
+    <Vssue :title="commentTitle" />
   </section>
 </template>
 
@@ -19,6 +19,11 @@ export default {
   components: {
     TimeAgo
   },
+  computed: {
+    commentTitle () {
+      return process.env.NODE_ENV === 'production' ? this.$page.title : 'Comments'
+    }
+  }
 }
 </script>
 <style>
