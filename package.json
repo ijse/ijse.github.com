@@ -1,10 +1,10 @@
 {
   "name": "ijse.github.com",
   "version": "2.0.0",
-  "description": "my blog",
-  "main": "index.js",
+  "description": "ijse blog",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vuepress dev .",
+    "build": "vuepress build"
   },
   "repository": {
     "type": "git",
@@ -12,8 +12,12 @@
   },
   "author": "ijse",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ijse/ijse.github.com/issues"
-  },
-  "homepage": "https://github.com/ijse/ijse.github.com#readme"
+  "homepage": "https://github.com/ijse/ijse.github.com#readme",
+  "dependencies": {
+    "@vuepress/plugin-blog": "^1.0.0-alpha.0",
+    "vuepress": "^1.0.0-alpha.36",
+    "@vuepress/plugin-last-updated": "^1.0.0-alpha.0",
+    "prismjs": "^1.15.0",
+    "timeago.js": "^4.0.0-beta.2"
+  }
 }

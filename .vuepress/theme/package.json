@@ -1,0 +1,28 @@
+{
+  "name": "vuepress-theme-simple",
+  "description": "✏️ Very Simple Blog Theme for VuePress",
+  "version": "0.3.0",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "release": "npm run lint && standard-version && npm publish"
+  },
+  "keywords": [
+    "vuepress",
+    "vuepress-theme",
+    "blog-theme"
+  ],
+  "author": "viko16 <16viko@gmail.com>",
+  "repository": "viko16/vuepress-theme-simple",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^5.13.0",
+    "eslint-plugin-vue": "^5.1.0",
+    "standard-version": "^4.4.0"
+  },
+  "dependencies": {
+    "@vuepress/plugin-last-updated": "^1.0.0-alpha.0",
+    "prismjs": "^1.15.0",
+    "timeago.js": "^4.0.0-beta.2"
+  }
+}
