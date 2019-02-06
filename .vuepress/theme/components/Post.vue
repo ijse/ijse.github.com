@@ -8,6 +8,7 @@
       />
     </h1>
     <Content />
+    <Vssue title="Comments" />
   </section>
 </template>
 
@@ -20,3 +21,8 @@ export default {
   },
 }
 </script>
+<style>
+.vssue-header-powered-by {
+  display: none;
+}
+</style>

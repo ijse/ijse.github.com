@@ -4,6 +4,6 @@ export default ({
   router, // 当前应用的路由实例
   siteData // 站点元数据
 }) => {
-  console.log('>>>', siteData)
+  console.log(process.env.NODE_ENV)
   // ...做一些其他的应用级别的优化
 }
