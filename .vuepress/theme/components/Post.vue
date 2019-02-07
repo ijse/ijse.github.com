@@ -8,7 +8,7 @@
       />
     </h1>
     <Content />
-    <Vssue :title="commentTitle" />
+    <Vssue v-if="hasComment" :title="commentTitle" />
   </section>
 </template>
 
@@ -20,6 +20,9 @@ export default {
     TimeAgo
   },
   computed: {
+    hasComment () {
+      return this.$page.comment === false || process.env.NODE_ENV !== 'production'
+    },
     commentTitle () {
       return process.env.NODE_ENV === 'production' ? this.$page.title : 'Comments'
     }
