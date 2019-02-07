@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>无root权限下安装tmux | &lt;ijse blog /&gt;</title>
+    <meta name="description" content="">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.71378398.css" as="style"><link rel="preload" href="/assets/js/app.0bc387cd.js" as="script"><link rel="preload" href="/assets/js/3.176892a8.js" as="script"><link rel="preload" href="/assets/js/15.cea13f44.js" as="script"><link rel="prefetch" href="/assets/js/10.fe9787be.js"><link rel="prefetch" href="/assets/js/11.cddaf4e8.js"><link rel="prefetch" href="/assets/js/12.a6a3dff1.js"><link rel="prefetch" href="/assets/js/13.e57f3aeb.js"><link rel="prefetch" href="/assets/js/14.3a65ec04.js"><link rel="prefetch" href="/assets/js/16.226cb15f.js"><link rel="prefetch" href="/assets/js/17.7ea296a3.js"><link rel="prefetch" href="/assets/js/18.665c585c.js"><link rel="prefetch" href="/assets/js/19.5f0a375c.js"><link rel="prefetch" href="/assets/js/2.e13c61f6.js"><link rel="prefetch" href="/assets/js/20.6ec898df.js"><link rel="prefetch" href="/assets/js/21.653b2a22.js"><link rel="prefetch" href="/assets/js/22.3120aa13.js"><link rel="prefetch" href="/assets/js/23.7ab41da9.js"><link rel="prefetch" href="/assets/js/24.108da138.js"><link rel="prefetch" href="/assets/js/25.c47d6116.js"><link rel="prefetch" href="/assets/js/26.bd2f2938.js"><link rel="prefetch" href="/assets/js/27.c20e099a.js"><link rel="prefetch" href="/assets/js/28.5119cda2.js"><link rel="prefetch" href="/assets/js/29.c98721c8.js"><link rel="prefetch" href="/assets/js/30.d8d4199d.js"><link rel="prefetch" href="/assets/js/31.6b6db749.js"><link rel="prefetch" href="/assets/js/32.866e897a.js"><link rel="prefetch" href="/assets/js/33.5dab35f4.js"><link rel="prefetch" href="/assets/js/34.89e2ee80.js"><link rel="prefetch" href="/assets/js/35.d514fa50.js"><link rel="prefetch" href="/assets/js/36.fe7e1400.js"><link rel="prefetch" href="/assets/js/37.1bdcfdb8.js"><link rel="prefetch" href="/assets/js/38.d176edcc.js"><link rel="prefetch" href="/assets/js/39.a1ad6dcd.js"><link rel="prefetch" href="/assets/js/4.2fdc60e1.js"><link rel="prefetch" href="/assets/js/40.909f011d.js"><link rel="prefetch" href="/assets/js/41.29dd84f2.js"><link rel="prefetch" href="/assets/js/5.13c1ac3f.js"><link rel="prefetch" href="/assets/js/6.9189adcc.js"><link rel="prefetch" href="/assets/js/7.823ee43d.js"><link rel="prefetch" href="/assets/js/8.68d2152f.js"><link rel="prefetch" href="/assets/js/9.20980292.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.71378398.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container vuepress-theme-simple"><header class="header"><a href="/" title="" class="router-link-active">
+      &lt;ijse blog /&gt;
+    </a> <div style="clear: both"></div></header> <section class="post-view"><h1 class="post-title">
+    无root权限下安装tmux
+    <time datetime="2013-10-8" title="2013-10-8" pubdate="pubdate" class="post-date">
+  5 years ago
+</time></h1> <div class="content default"><p>公司的一台RedHat服务器，是普通用户权限，也不在sudoer列表中，不能使用apt-get，因此好多软件安装一般都要联系运维，比较麻烦；而一般软件安装要么是apt-get方式，要么是需要源码编译安装，文档中大多是以具备root权限为前提的。</p> <p>其实，所需root权限无非是为了向某些目录写入文件，如/bin, /usr/lib等等，编译安装时，<code>./configure</code>命令添加<code>--prefix</code>参数，可以将文件全部重指定到有权限的用户home目录下，用这种方法可以安装大部分软件，如nginx, php, nodejs。</p> <p>安装tmux时，所依赖的libevent库服务器上没有，于是又去下载libevent源码，然后安装完毕，当再次<code>./configure</code> tmux源码时，仍然报<code>libevent not found</code>。经过google查到，仍需要额外指定一些参数，详细如下：（假设我把libevent安装到了<code>~/prog/libevent/</code>文件夹下）</p> <pre><code>$&gt; LIBEVENT_PATH=/home/webadmin/prog/libevent
+$&gt; ./configure --prefix=/home/webadmin/prog/tmux CFLAGS=&quot;-I$LIBEVENT_PATH/include&quot; LDFLAGS=&quot;-L$LIBEVENT_PATH/lib&quot;
+</code></pre> <p>如上，便可以成功 configure ， make &amp;&amp; make install</p> <p>但执行tmux时仍然会报找不到libevent, 这时候需要修改一个环境变量，将libevent的路径添加进去。</p> <pre><code>$&gt; export LD_LIBRARY_PATH=&quot;$LIBEVENT_PATH/lib/:$LD_LIBRARY_PATH&quot;
+</code></pre> <p>然后tmux便可以成功执行了~</p> <h2 id="ps-在编译libevent时，configure命令添加-disable-shared-也可以解决这个问题。"><a href="#ps-在编译libevent时，configure命令添加-disable-shared-也可以解决这个问题。" aria-hidden="true" class="header-anchor">#</a> PS:  在编译libevent时，configure命令添加 --disable-shared 也可以解决这个问题。</h2> <p>一般为了tmux可以随时调用，我会在.bashrc文件中添加以上环境变量的配置，及创建一个tmux的命令别名，这样不必每次重新配置和使用全路径执行程序了。</p></div> <!----></section> <footer class="footer"><!----></footer></div><div class="global-ui"><!----></div></div>
+    <script src="/assets/js/app.0bc387cd.js" defer></script><script src="/assets/js/3.176892a8.js" defer></script><script src="/assets/js/15.cea13f44.js" defer></script>
+  </body>
+</html>

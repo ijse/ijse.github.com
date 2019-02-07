@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>JavaScript的设计模式 | &lt;ijse blog /&gt;</title>
+    <meta name="description" content="">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.71378398.css" as="style"><link rel="preload" href="/assets/js/app.0bc387cd.js" as="script"><link rel="preload" href="/assets/js/3.176892a8.js" as="script"><link rel="preload" href="/assets/js/7.823ee43d.js" as="script"><link rel="prefetch" href="/assets/js/10.fe9787be.js"><link rel="prefetch" href="/assets/js/11.cddaf4e8.js"><link rel="prefetch" href="/assets/js/12.a6a3dff1.js"><link rel="prefetch" href="/assets/js/13.e57f3aeb.js"><link rel="prefetch" href="/assets/js/14.3a65ec04.js"><link rel="prefetch" href="/assets/js/15.cea13f44.js"><link rel="prefetch" href="/assets/js/16.226cb15f.js"><link rel="prefetch" href="/assets/js/17.7ea296a3.js"><link rel="prefetch" href="/assets/js/18.665c585c.js"><link rel="prefetch" href="/assets/js/19.5f0a375c.js"><link rel="prefetch" href="/assets/js/2.e13c61f6.js"><link rel="prefetch" href="/assets/js/20.6ec898df.js"><link rel="prefetch" href="/assets/js/21.653b2a22.js"><link rel="prefetch" href="/assets/js/22.3120aa13.js"><link rel="prefetch" href="/assets/js/23.7ab41da9.js"><link rel="prefetch" href="/assets/js/24.108da138.js"><link rel="prefetch" href="/assets/js/25.c47d6116.js"><link rel="prefetch" href="/assets/js/26.bd2f2938.js"><link rel="prefetch" href="/assets/js/27.c20e099a.js"><link rel="prefetch" href="/assets/js/28.5119cda2.js"><link rel="prefetch" href="/assets/js/29.c98721c8.js"><link rel="prefetch" href="/assets/js/30.d8d4199d.js"><link rel="prefetch" href="/assets/js/31.6b6db749.js"><link rel="prefetch" href="/assets/js/32.866e897a.js"><link rel="prefetch" href="/assets/js/33.5dab35f4.js"><link rel="prefetch" href="/assets/js/34.89e2ee80.js"><link rel="prefetch" href="/assets/js/35.d514fa50.js"><link rel="prefetch" href="/assets/js/36.fe7e1400.js"><link rel="prefetch" href="/assets/js/37.1bdcfdb8.js"><link rel="prefetch" href="/assets/js/38.d176edcc.js"><link rel="prefetch" href="/assets/js/39.a1ad6dcd.js"><link rel="prefetch" href="/assets/js/4.2fdc60e1.js"><link rel="prefetch" href="/assets/js/40.909f011d.js"><link rel="prefetch" href="/assets/js/41.29dd84f2.js"><link rel="prefetch" href="/assets/js/5.13c1ac3f.js"><link rel="prefetch" href="/assets/js/6.9189adcc.js"><link rel="prefetch" href="/assets/js/8.68d2152f.js"><link rel="prefetch" href="/assets/js/9.20980292.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.71378398.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container vuepress-theme-simple"><header class="header"><a href="/" title="" class="router-link-active">
+      &lt;ijse blog /&gt;
+    </a> <div style="clear: both"></div></header> <section class="post-view"><h1 class="post-title">
+    JavaScript的设计模式
+    <time datetime="2013-4-14" title="2013-4-14" pubdate="pubdate" class="post-date">
+  5 years ago
+</time></h1> <div class="content default"><h1 id="singleton-单例模式"><a href="#singleton-单例模式" aria-hidden="true" class="header-anchor">#</a> Singleton 单例模式</h1> <pre><code>var bird = {
+    type: &quot;Red&quot;,
+    fly: function() {
+        console.log( &quot;Weeeee!&quot; );
+    },
+    destroy: function() {
+        console.log( &quot;Hasta la vista, baby!&quot; );
+    }
+};
+</code></pre> <h1 id="factory-工厂模式"><a href="#factory-工厂模式" aria-hidden="true" class="header-anchor">#</a> Factory 工厂模式</h1> <p>工厂模式是一种不使用<code>new</code>关键字创建对象的方式，抽象出了创建对象这一动作。</p> <pre><code>var Bird = function() {};
+Bird.factory = function( type ) {
+    var bird;
+    if ( typeof Bird[ type ] === &quot;function&quot; ) {
+        bird = new Bird[ type ]();
+    }
+    return bird;
+};
+ 
+Bird.Red = function() {};
+Bird.Blue = function() {};
+ 
+var redBird = Bird.factory( &quot;Red&quot; );
+var blueBird = Bird.factor( &quot;Blue&quot; );
+</code></pre> <h1 id="bridge-桥接模式"><a href="#bridge-桥接模式" aria-hidden="true" class="header-anchor">#</a> Bridge 桥接模式</h1> <p>这个模式可以大大方便代码的单元测试。</p> <pre><code>// Not Bridged
+var getUrl = function() {
+    var url = $( this ).attr( &quot;href&quot; );
+    
+    $.ajax({
+        url: url,
+        success: function( data ) {
+            console.log( data );
+        }
+    });
+};
+$( &quot;a.ajax&quot; ).on( &quot;click&quot;, getUrl );
+ 
+// Bridged
+var getUrl = function( url, callback ) {
+    $.ajax({
+        url: url,
+        success: function( data ) {
+            if ( callback ) { callback( data ); }
+        }
+    });
+};
+var getUrlBridge = function() {
+    var url = $( this ).attr( &quot;href&quot; );
+    
+    getUrl( url, function( data ) {
+        console.log( data );
+    });
+}
+$( &quot;a.ajax&quot; ).on( &quot;click&quot;, getUrlBridge );
+</code></pre> <h1 id="facade-门面模式"><a href="#facade-门面模式" aria-hidden="true" class="header-anchor">#</a> Facade 门面模式</h1> <p>这种模式可以将一些多个版本的方法封装成一个版本来使用，简化调用过程。</p> <pre><code>// Facade
+var addEvent = function( element, type, eventHandler ) {
+    if ( element.addEventListener ) {
+        element.addEventListener( type, eventHandler, false );
+    } else if ( elemement.attachEvent ) {
+        element.attachEvent( &quot;on&quot; + type, eventHandler );    
+    }
+};
+</code></pre> <h1 id="adapter-适配器模式"><a href="#adapter-适配器模式" aria-hidden="true" class="header-anchor">#</a> Adapter 适配器模式</h1> <pre><code>/*!
+ * jquery-win8-deferred - jQuery $.when that understands WinJS.promise
+ * version: 0.1
+ * author: appendTo, LLC
+ * copyright: 2012
+ * license: MIT (http://www.opensource.org/licenses/mit-license)
+ * date: Thu, 01 Nov 2012 07:38:13 GMT
+ */
+ (function () {
+    var $when = $.when;
+    $.when = function () {
+        var args = Array.prototype.slice.call(arguments);
+ 
+        args = $.map(args, function (arg) {
+            if (arg instanceof WinJS.Promise) {
+                arg = $.Deferred(function (dfd) {
+                    arg.then(
+                        function complete() {
+                            dfd.resolveWith(this, arguments);
+                        }, function error() {
+                            dfd.rejectWith(this, arguments);
+                        }, function progress() {
+                            dfd.notifyWith(this, arguments);
+                        }
+                    );
+                }).promise();
+            }
+ 
+            return arg;
+        });
+ 
+        return $when.apply(this, args);
+    };
+}());
+</code></pre> <h1 id="observer-观察者模式"><a href="#observer-观察者模式" aria-hidden="true" class="header-anchor">#</a> Observer 观察者模式</h1> <p>这种模式非常有用，可以用它来与其它组件解耦，比较不错的有<a href="https://github.com/postaljs/postal.js" target="_blank" rel="noopener noreferrer">postal.js<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> 库</p> <pre><code>var channel = postal.channel( &quot;game&quot; );
+ 
+channel.subscribe( &quot;bird.attack&quot;, function( data ) {
+    console.log( &quot;Geronimo!&quot; );
+});
+ 
+channel.subscribe( &quot;pig.collide&quot;, function( impact ) {
+    if ( impact &gt; 100 ) {
+        console.log( &quot;AHHHHHHH!&quot; );
+    }
+});
+ 
+channel.publish( &quot;bird.attack&quot;, { angle: 45 } );
+</code></pre></div> <!----></section> <footer class="footer"><!----></footer></div><div class="global-ui"><!----></div></div>
+    <script src="/assets/js/app.0bc387cd.js" defer></script><script src="/assets/js/3.176892a8.js" defer></script><script src="/assets/js/7.823ee43d.js" defer></script>
+  </body>
+</html>

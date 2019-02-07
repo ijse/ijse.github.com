@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>WebSocket相关笔记 | &lt;ijse blog /&gt;</title>
+    <meta name="description" content="">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.71378398.css" as="style"><link rel="preload" href="/assets/js/app.0bc387cd.js" as="script"><link rel="preload" href="/assets/js/3.176892a8.js" as="script"><link rel="preload" href="/assets/js/8.68d2152f.js" as="script"><link rel="prefetch" href="/assets/js/10.fe9787be.js"><link rel="prefetch" href="/assets/js/11.cddaf4e8.js"><link rel="prefetch" href="/assets/js/12.a6a3dff1.js"><link rel="prefetch" href="/assets/js/13.e57f3aeb.js"><link rel="prefetch" href="/assets/js/14.3a65ec04.js"><link rel="prefetch" href="/assets/js/15.cea13f44.js"><link rel="prefetch" href="/assets/js/16.226cb15f.js"><link rel="prefetch" href="/assets/js/17.7ea296a3.js"><link rel="prefetch" href="/assets/js/18.665c585c.js"><link rel="prefetch" href="/assets/js/19.5f0a375c.js"><link rel="prefetch" href="/assets/js/2.e13c61f6.js"><link rel="prefetch" href="/assets/js/20.6ec898df.js"><link rel="prefetch" href="/assets/js/21.653b2a22.js"><link rel="prefetch" href="/assets/js/22.3120aa13.js"><link rel="prefetch" href="/assets/js/23.7ab41da9.js"><link rel="prefetch" href="/assets/js/24.108da138.js"><link rel="prefetch" href="/assets/js/25.c47d6116.js"><link rel="prefetch" href="/assets/js/26.bd2f2938.js"><link rel="prefetch" href="/assets/js/27.c20e099a.js"><link rel="prefetch" href="/assets/js/28.5119cda2.js"><link rel="prefetch" href="/assets/js/29.c98721c8.js"><link rel="prefetch" href="/assets/js/30.d8d4199d.js"><link rel="prefetch" href="/assets/js/31.6b6db749.js"><link rel="prefetch" href="/assets/js/32.866e897a.js"><link rel="prefetch" href="/assets/js/33.5dab35f4.js"><link rel="prefetch" href="/assets/js/34.89e2ee80.js"><link rel="prefetch" href="/assets/js/35.d514fa50.js"><link rel="prefetch" href="/assets/js/36.fe7e1400.js"><link rel="prefetch" href="/assets/js/37.1bdcfdb8.js"><link rel="prefetch" href="/assets/js/38.d176edcc.js"><link rel="prefetch" href="/assets/js/39.a1ad6dcd.js"><link rel="prefetch" href="/assets/js/4.2fdc60e1.js"><link rel="prefetch" href="/assets/js/40.909f011d.js"><link rel="prefetch" href="/assets/js/41.29dd84f2.js"><link rel="prefetch" href="/assets/js/5.13c1ac3f.js"><link rel="prefetch" href="/assets/js/6.9189adcc.js"><link rel="prefetch" href="/assets/js/7.823ee43d.js"><link rel="prefetch" href="/assets/js/9.20980292.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.71378398.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container vuepress-theme-simple"><header class="header"><a href="/" title="" class="router-link-active">
+      &lt;ijse blog /&gt;
+    </a> <div style="clear: both"></div></header> <section class="post-view"><h1 class="post-title">
+    WebSocket相关笔记
+    <time datetime="2013-4-21" title="2013-4-21" pubdate="pubdate" class="post-date">
+  5 years ago
+</time></h1> <div class="content default"><p>WebSocket 协议本质上是一个基于 TCP 的协议。为了建立一个 WebSocket 连接，客户端浏览器首先要向服务器发起一个 HTTP 请求，这个请求和通常的 HTTP 请求不同，包含了一些附加头信息，其中附加头信息”Upgrade: WebSocket”表明这是一个申请协议升级的 HTTP 请求，服务器端解析这些附加的头信息然后产生应答信息返回给客户端，客户端和服务器端的 WebSocket 连接就建立起来了，双方就可以通过这个连接通道自由的传递信息，并且这个连接会持续存在直到客户端或者服务器端的某一方主动的关闭连接。</p> <p>WebSocket不是一个新技术，只是HTML5规范中规定了一些接口，浏览器实现，供我们调用，然后通过一种特定的报文格式与后端通信，本质上其实是Socket通信</p> <p>相比HTTP协议的几个问题：</p> <ol><li>为一个WEB客户端潜在的建产多个TCP连接。</li> <li>HTTP头信息臃肿，每次传输都附带。</li> <li>基于请求-响应模式，HTTP服务端不能主动推送(push)数据到客户端。</li></ol> <p>WebSocket有这么些个好处:</p> <ol><li>只建立一个TCP连接</li> <li>服务器端与客户端可以互相推送数据</li> <li>轻量级的头信息，减少数据量</li> <li>接口简单，实现方便</li></ol> <h2 id="websocket-握手协议"><a href="#websocket-握手协议" aria-hidden="true" class="header-anchor">#</a> WebSocket 握手协议</h2> <pre><code>客户端到服务端： 
+GET ws://localhost:8090/TestWebSocket/test.do HTTP/1.1
+Pragma: no-cache
+Origin: http://localhost:8090
+Host: localhost:8090
+Sec-WebSocket-Key: kvapOIVORIYg1uWM5UeawQ==
+Upgrade: websocket
+Sec-WebSocket-Extensions: x-webkit-deflate-frame
+Cache-Control: no-cache
+Connection: Upgrade
+Sec-WebSocket-Version: 13
+
+服务端到客户端：
+HTTP/1.1 101 Switching Protocols
+Date: Sun, 21 Apr 2013 10:09:43 GMT
+Sec-WebSocket-Accept: GwjLfGrMUKdi2yDFRnqncUhuXwQ=
+Server: Apache-Coyote/1.1
+Connection: upgrade
+Upgrade: websocket
+</code></pre> <p>其中，<code>Upgrade:websocket</code> 表示客户端请求将通信协议由HTTP升级为WebSocket, 然后浏览器与服务器端会通过这个<code>Sec-WebSocket-Key</code>和<code>Sec-WebSocket-Accept</code>来进行握手协议，建立连接。</p> <p>连接建立成功后，从Chrome的Network面板中可以看到这个请求一直处于Pending状态，表示与服务器端一直在连接着，可随时发送和接收数据。</p> <h2 id="java服务器端"><a href="#java服务器端" aria-hidden="true" class="header-anchor">#</a> JAVA服务器端</h2> <p>Tomcat对WebSocket做了支持，可以编写继承自WebSocketServlet的Servlet, 然后用MessageInbound或StreamInbound来处理消息。较新版本的tomcat还可以直接获取到请求的request，从而操作Session。</p> <p>我只试了在Tomcat7.0.32版本，更低的没试。因为WebSocket的标准也不太稳定，所以最好还是选用较新版本的Tomcat。</p> <p>测试源码在这儿：</p> <h2 id="浏览器端"><a href="#浏览器端" aria-hidden="true" class="header-anchor">#</a> 浏览器端</h2> <p>较高版本的Chrome中内置了<code>WebSocket</code>对象，使用方法大致可以描述为：new一个WebSocket对象，然后添加一些事件处理方法，发送消息，关闭连接，如：</p> <pre><code>&lt;script&gt;
+var ws = new WebSocket(&quot;ws://localhost:8090/TestWebSocket/test.do&quot;);
+ws.onopen = function(evt) {
+	// 建立连接时...
+    alert(&quot;open&quot;);
+};
+ws.onerror = function(evt) {
+	// 异常时...
+    alert(&quot;error!!&quot;);
+}
+ws.onclose = function(evt) {
+	// 断开连接时...
+}
+ws.onmessage = function(data) {
+	// 接收数据...
+    console.log(data);
+}
+
+// 发送数据
+ws.send(&quot;xxx&quot;);
+
+// 断开连接
+ws.close();
+&lt;/script&gt;
+</code></pre> <p>WebSocket同样也可以发送二进制数据，可以直接send()一个Blob对象。前端调用起来还是蛮简单的。</p> <h2 id="有关nginx转发配置"><a href="#有关nginx转发配置" aria-hidden="true" class="header-anchor">#</a> 有关Nginx转发配置</h2> <p>常常，我们可能需要使用Nginx来配置反向代理。但<code>Upgrade</code>和<code>Connection</code>这两个HTTP 头不是End-to-end类型的头，它在<a href="http://tools.ietf.org/html/rfc2616#section-13.5.1" target="_blank" rel="noopener noreferrer">这里<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>被明确定义成了Hop-by-hop类型的，也就意味着它不会被代理服务器默认转发，不会被缓存。</p> <p><a href="http://nginx.org/en/docs/http/websocket.html" target="_blank" rel="noopener noreferrer">Nginx的文档<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>表示 ，需要手动地明确这两个头，即为每一次请求转发手动为其赋值，如下：</p> <pre><code>location /chat/ {
+    proxy_pass http://backend;
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection &quot;upgrade&quot;;
+}
+</code></pre> <h2 id="其它一些资源"><a href="#其它一些资源" aria-hidden="true" class="header-anchor">#</a> 其它一些资源</h2> <p>在线连接Demo <a href="http://www.websocket.org/echo.html" target="_blank" rel="noopener noreferrer">http://www.websocket.org/echo.html<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p></div> <!----></section> <footer class="footer"><!----></footer></div><div class="global-ui"><!----></div></div>
+    <script src="/assets/js/app.0bc387cd.js" defer></script><script src="/assets/js/3.176892a8.js" defer></script><script src="/assets/js/8.68d2152f.js" defer></script>
+  </body>
+</html>

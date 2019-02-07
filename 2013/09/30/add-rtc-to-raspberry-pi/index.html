@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>给Raspberry Pi添加RTC模块 | &lt;ijse blog /&gt;</title>
+    <meta name="description" content="">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.71378398.css" as="style"><link rel="preload" href="/assets/js/app.0bc387cd.js" as="script"><link rel="preload" href="/assets/js/3.176892a8.js" as="script"><link rel="preload" href="/assets/js/14.3a65ec04.js" as="script"><link rel="prefetch" href="/assets/js/10.fe9787be.js"><link rel="prefetch" href="/assets/js/11.cddaf4e8.js"><link rel="prefetch" href="/assets/js/12.a6a3dff1.js"><link rel="prefetch" href="/assets/js/13.e57f3aeb.js"><link rel="prefetch" href="/assets/js/15.cea13f44.js"><link rel="prefetch" href="/assets/js/16.226cb15f.js"><link rel="prefetch" href="/assets/js/17.7ea296a3.js"><link rel="prefetch" href="/assets/js/18.665c585c.js"><link rel="prefetch" href="/assets/js/19.5f0a375c.js"><link rel="prefetch" href="/assets/js/2.e13c61f6.js"><link rel="prefetch" href="/assets/js/20.6ec898df.js"><link rel="prefetch" href="/assets/js/21.653b2a22.js"><link rel="prefetch" href="/assets/js/22.3120aa13.js"><link rel="prefetch" href="/assets/js/23.7ab41da9.js"><link rel="prefetch" href="/assets/js/24.108da138.js"><link rel="prefetch" href="/assets/js/25.c47d6116.js"><link rel="prefetch" href="/assets/js/26.bd2f2938.js"><link rel="prefetch" href="/assets/js/27.c20e099a.js"><link rel="prefetch" href="/assets/js/28.5119cda2.js"><link rel="prefetch" href="/assets/js/29.c98721c8.js"><link rel="prefetch" href="/assets/js/30.d8d4199d.js"><link rel="prefetch" href="/assets/js/31.6b6db749.js"><link rel="prefetch" href="/assets/js/32.866e897a.js"><link rel="prefetch" href="/assets/js/33.5dab35f4.js"><link rel="prefetch" href="/assets/js/34.89e2ee80.js"><link rel="prefetch" href="/assets/js/35.d514fa50.js"><link rel="prefetch" href="/assets/js/36.fe7e1400.js"><link rel="prefetch" href="/assets/js/37.1bdcfdb8.js"><link rel="prefetch" href="/assets/js/38.d176edcc.js"><link rel="prefetch" href="/assets/js/39.a1ad6dcd.js"><link rel="prefetch" href="/assets/js/4.2fdc60e1.js"><link rel="prefetch" href="/assets/js/40.909f011d.js"><link rel="prefetch" href="/assets/js/41.29dd84f2.js"><link rel="prefetch" href="/assets/js/5.13c1ac3f.js"><link rel="prefetch" href="/assets/js/6.9189adcc.js"><link rel="prefetch" href="/assets/js/7.823ee43d.js"><link rel="prefetch" href="/assets/js/8.68d2152f.js"><link rel="prefetch" href="/assets/js/9.20980292.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.71378398.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container vuepress-theme-simple"><header class="header"><a href="/" title="" class="router-link-active">
+      &lt;ijse blog /&gt;
+    </a> <div style="clear: both"></div></header> <section class="post-view"><h1 class="post-title">
+    给Raspberry Pi添加RTC模块
+    <time datetime="2013-9-30" title="2013-9-30" pubdate="pubdate" class="post-date">
+  5 years ago
+</time></h1> <div class="content default"><p>Raspberry Pi 默认是没有RTC的，系统设置的时间在断电后便会丢失，再次开机时又会回到1970年。通常让RPI保存时间的办法有两个：</p> <ul><li>网络时间同步，用NTP</li> <li>添加RTC硬件模块</li></ul> <p>RTC模块跟PC主板上的一样，我们可以把它插到Raspberry Pi的GPIO接口上，然后需要进行一番配置；</p> <h3 id="第一步，添加初始化rtc模块调用"><a href="#第一步，添加初始化rtc模块调用" aria-hidden="true" class="header-anchor">#</a> 第一步，添加初始化rtc模块调用</h3> <p>修改<code>/etc/init.d/hwclock.sh</code>头文件，添加如下Shell代码：</p> <pre><code>init_rtc_device() {
+  [ -e /dev/rtc0 ] &amp;&amp; return 0;
+  #load i2c and RTC kernel modules
+  modprobe i2c-dev
+  modprobe rtc-ds1307
+
+  #iterate over every i2c bus as we're supporting Raspberry Pi rev. 1 and 2
+  #(different I2C busses on GPIO header!)
+  for bus in $(ls -d /sys/bus/i2c/devices/i2c-*);
+  do
+     echo ds1307 0x68 &gt;&gt; $bus/new_device;
+     if [ -e /dev/rtc0 ]; then
+       log_action_msg &quot;RTC found on bus `cat $bus/name`&quot;;
+       break; # RTC found, bail out of the loop
+     else
+       echo 0x68 &gt;&gt; $bus/delete_device
+     fi
+   done
+}
+init_rtc_device
+</code></pre> <h3 id="第二步，开启"><a href="#第二步，开启" aria-hidden="true" class="header-anchor">#</a> 第二步，开启</h3> <p>修改<code>/etc/modprobe.d/raspi-blacklist.conf</code>配置文件，把第二行注释掉：</p> <pre><code>#blacklist i2c-bcm2708
+</code></pre> <h3 id="第三步，更新启动配置"><a href="#第三步，更新启动配置" aria-hidden="true" class="header-anchor">#</a> 第三步，更新启动配置</h3> <pre><code>sudo update-rc.d hwclock.sh enable
+</code></pre> <p>然后重启下：</p> <pre><code>sudo reboot
+</code></pre> <h3 id="第四步，设置本地时区"><a href="#第四步，设置本地时区" aria-hidden="true" class="header-anchor">#</a> 第四步，设置本地时区</h3> <p>可以进入<code>sudo raspi-config</code>工具，也可以直接使用命令：</p> <pre><code>sudo dpkg-reconfigure tzdata
+</code></pre> <h3 id="第五步，关掉一些默认配置"><a href="#第五步，关掉一些默认配置" aria-hidden="true" class="header-anchor">#</a> 第五步，关掉一些默认配置</h3> <pre><code>sudo update-rc.d fake-hwclock disable
+sudo update-rc.d ntp disable
+</code></pre> <p>然后再重启下：</p> <pre><code>sudo reboot
+</code></pre> <h3 id="第六步，配置正确时间，并写入到rtc模块中"><a href="#第六步，配置正确时间，并写入到rtc模块中" aria-hidden="true" class="header-anchor">#</a> 第六步，配置正确时间，并写入到rtc模块中</h3> <p>可以用命令：<code>sudo date -s &quot;2013-09-30 10:10:10&quot;</code>来设置本地系统时间，然后需要再用命令：</p> <pre><code>sudo hwclock -w
+</code></pre> <p>将系统时间写入到RTC模块。另外，下面还有几个命令：</p> <ul><li><p>改RTC模块的时间</p> <p>sudo hwclock --set  --date 05:05:05
+sudo hwclock --set  --date 2013-09-30</p></li> <li><p>把rtc模块的时间更新到系统时间</p> <p>sudo hwclock –s</p></li></ul> <p>最后，可以验证下，关机，重插电源 ，然后开机试试看。</p></div> <!----></section> <footer class="footer"><!----></footer></div><div class="global-ui"><!----></div></div>
+    <script src="/assets/js/app.0bc387cd.js" defer></script><script src="/assets/js/3.176892a8.js" defer></script><script src="/assets/js/14.3a65ec04.js" defer></script>
+  </body>
+</html>

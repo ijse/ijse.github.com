@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>NPM管理two package.json项目的version同步更新 | &lt;ijse blog /&gt;</title>
+    <meta name="description" content="">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.71378398.css" as="style"><link rel="preload" href="/assets/js/app.0bc387cd.js" as="script"><link rel="preload" href="/assets/js/3.176892a8.js" as="script"><link rel="preload" href="/assets/js/27.c20e099a.js" as="script"><link rel="prefetch" href="/assets/js/10.fe9787be.js"><link rel="prefetch" href="/assets/js/11.cddaf4e8.js"><link rel="prefetch" href="/assets/js/12.a6a3dff1.js"><link rel="prefetch" href="/assets/js/13.e57f3aeb.js"><link rel="prefetch" href="/assets/js/14.3a65ec04.js"><link rel="prefetch" href="/assets/js/15.cea13f44.js"><link rel="prefetch" href="/assets/js/16.226cb15f.js"><link rel="prefetch" href="/assets/js/17.7ea296a3.js"><link rel="prefetch" href="/assets/js/18.665c585c.js"><link rel="prefetch" href="/assets/js/19.5f0a375c.js"><link rel="prefetch" href="/assets/js/2.e13c61f6.js"><link rel="prefetch" href="/assets/js/20.6ec898df.js"><link rel="prefetch" href="/assets/js/21.653b2a22.js"><link rel="prefetch" href="/assets/js/22.3120aa13.js"><link rel="prefetch" href="/assets/js/23.7ab41da9.js"><link rel="prefetch" href="/assets/js/24.108da138.js"><link rel="prefetch" href="/assets/js/25.c47d6116.js"><link rel="prefetch" href="/assets/js/26.bd2f2938.js"><link rel="prefetch" href="/assets/js/28.5119cda2.js"><link rel="prefetch" href="/assets/js/29.c98721c8.js"><link rel="prefetch" href="/assets/js/30.d8d4199d.js"><link rel="prefetch" href="/assets/js/31.6b6db749.js"><link rel="prefetch" href="/assets/js/32.866e897a.js"><link rel="prefetch" href="/assets/js/33.5dab35f4.js"><link rel="prefetch" href="/assets/js/34.89e2ee80.js"><link rel="prefetch" href="/assets/js/35.d514fa50.js"><link rel="prefetch" href="/assets/js/36.fe7e1400.js"><link rel="prefetch" href="/assets/js/37.1bdcfdb8.js"><link rel="prefetch" href="/assets/js/38.d176edcc.js"><link rel="prefetch" href="/assets/js/39.a1ad6dcd.js"><link rel="prefetch" href="/assets/js/4.2fdc60e1.js"><link rel="prefetch" href="/assets/js/40.909f011d.js"><link rel="prefetch" href="/assets/js/41.29dd84f2.js"><link rel="prefetch" href="/assets/js/5.13c1ac3f.js"><link rel="prefetch" href="/assets/js/6.9189adcc.js"><link rel="prefetch" href="/assets/js/7.823ee43d.js"><link rel="prefetch" href="/assets/js/8.68d2152f.js"><link rel="prefetch" href="/assets/js/9.20980292.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.71378398.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container vuepress-theme-simple"><header class="header"><a href="/" title="" class="router-link-active">
+      &lt;ijse blog /&gt;
+    </a> <div style="clear: both"></div></header> <section class="post-view"><h1 class="post-title">
+    NPM管理two package.json项目的version同步更新
+    <time datetime="2017-3-27" title="2017-3-27" pubdate="pubdate" class="post-date">
+  1 year ago
+</time></h1> <div class="content default"><p>最近在重构一个Electron项目，使用了 <a href="https://github.com/electron-userland/electron-builder/wiki/Two-package.json-Structure" target="_blank" rel="noopener noreferrer">two package.json structure<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>，但怎样方便地同步更新两个<code>version</code></p> <p>项目结构类似如下：</p> <div class="language- extra-class"><pre class="language-text"><code>- project/
+  - app/
+    - package.json
+  - package.json
+</code></pre></div><p>打包时使用的是<code>project/app/package.json</code>中的<code>version</code>，但习惯上一般是在<code>project/</code>目录下执行<code>npm version</code>。</p> <p>默认执行<code>npm version</code>更新版本号时，只会自动更新当前目录下<code>package.json</code>中的<code>version</code>字段，<code>project/app/</code>下的只能手动更新。</p> <p>最终的解决方式如下：</p> <div class="language- extra-class"><pre class="language-text"><code>// project/package.json
+&quot;scripts&quot;: {
+    &quot;version&quot;: &quot;pushd app; npm version $npm_package_version; git add -A; popd&quot;
+}
+</code></pre></div><p>参考文档：<a href="https://docs.npmjs.com/cli/version" target="_blank" rel="noopener noreferrer">https://docs.npmjs.com/cli/version<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p></div> <!----></section> <footer class="footer"><!----></footer></div><div class="global-ui"><!----></div></div>
+    <script src="/assets/js/app.0bc387cd.js" defer></script><script src="/assets/js/3.176892a8.js" defer></script><script src="/assets/js/27.c20e099a.js" defer></script>
+  </body>
+</html>

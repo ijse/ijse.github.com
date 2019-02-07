@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Docker 笔记 打造node.js开发环境 安装nvm | &lt;ijse blog /&gt;</title>
+    <meta name="description" content="">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.71378398.css" as="style"><link rel="preload" href="/assets/js/app.0bc387cd.js" as="script"><link rel="preload" href="/assets/js/3.176892a8.js" as="script"><link rel="preload" href="/assets/js/20.6ec898df.js" as="script"><link rel="prefetch" href="/assets/js/10.fe9787be.js"><link rel="prefetch" href="/assets/js/11.cddaf4e8.js"><link rel="prefetch" href="/assets/js/12.a6a3dff1.js"><link rel="prefetch" href="/assets/js/13.e57f3aeb.js"><link rel="prefetch" href="/assets/js/14.3a65ec04.js"><link rel="prefetch" href="/assets/js/15.cea13f44.js"><link rel="prefetch" href="/assets/js/16.226cb15f.js"><link rel="prefetch" href="/assets/js/17.7ea296a3.js"><link rel="prefetch" href="/assets/js/18.665c585c.js"><link rel="prefetch" href="/assets/js/19.5f0a375c.js"><link rel="prefetch" href="/assets/js/2.e13c61f6.js"><link rel="prefetch" href="/assets/js/21.653b2a22.js"><link rel="prefetch" href="/assets/js/22.3120aa13.js"><link rel="prefetch" href="/assets/js/23.7ab41da9.js"><link rel="prefetch" href="/assets/js/24.108da138.js"><link rel="prefetch" href="/assets/js/25.c47d6116.js"><link rel="prefetch" href="/assets/js/26.bd2f2938.js"><link rel="prefetch" href="/assets/js/27.c20e099a.js"><link rel="prefetch" href="/assets/js/28.5119cda2.js"><link rel="prefetch" href="/assets/js/29.c98721c8.js"><link rel="prefetch" href="/assets/js/30.d8d4199d.js"><link rel="prefetch" href="/assets/js/31.6b6db749.js"><link rel="prefetch" href="/assets/js/32.866e897a.js"><link rel="prefetch" href="/assets/js/33.5dab35f4.js"><link rel="prefetch" href="/assets/js/34.89e2ee80.js"><link rel="prefetch" href="/assets/js/35.d514fa50.js"><link rel="prefetch" href="/assets/js/36.fe7e1400.js"><link rel="prefetch" href="/assets/js/37.1bdcfdb8.js"><link rel="prefetch" href="/assets/js/38.d176edcc.js"><link rel="prefetch" href="/assets/js/39.a1ad6dcd.js"><link rel="prefetch" href="/assets/js/4.2fdc60e1.js"><link rel="prefetch" href="/assets/js/40.909f011d.js"><link rel="prefetch" href="/assets/js/41.29dd84f2.js"><link rel="prefetch" href="/assets/js/5.13c1ac3f.js"><link rel="prefetch" href="/assets/js/6.9189adcc.js"><link rel="prefetch" href="/assets/js/7.823ee43d.js"><link rel="prefetch" href="/assets/js/8.68d2152f.js"><link rel="prefetch" href="/assets/js/9.20980292.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.71378398.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container vuepress-theme-simple"><header class="header"><a href="/" title="" class="router-link-active">
+      &lt;ijse blog /&gt;
+    </a> <div style="clear: both"></div></header> <section class="post-view"><h1 class="post-title">
+    Docker 笔记 打造node.js开发环境 安装nvm
+    <time datetime="2015-3-31" title="2015-3-31" pubdate="pubdate" class="post-date">
+  3 years ago
+</time></h1> <div class="content default"><p>通过制作一个Docker镜像，统一管理开发环境，使不同开发者可以在任何平台下开发，同时拥有相同的开发环境配置。</p> <p>文章所用的示例代码发布在Github上了，<a href="https://github.com/ijse/nodejs-docker-image">点击此处查看</a></p> <h4 id="toc_0">创建Dockerfile文件</h4>
+```docker
+###########
+# Usage:
+#
+#   docker run -it -v &lt;project-resource-directory&gt;:/workspace \
+#                  --name &lt;container-name&gt; [image-name]
+#
+<p>FROM centos
+MAINTAINER ijse</p> <p>RUN yum -y update
+RUN yum -y install tar git</p> <h1 id="配置环境变量"><a href="#配置环境变量" aria-hidden="true" class="header-anchor">#</a> 配置环境变量</h1> <p>ENV NVM_DIR /usr/local/nvm
+ENV NODE_VERSION 0.10.32
+ENV WORK_DIR /workspace</p> <h1 id="下载和配置node-js环境"><a href="#下载和配置node-js环境" aria-hidden="true" class="header-anchor">#</a> 下载和配置Node.js环境</h1> <h1 id="这些命令一定要写在一起-否则nvm命令会找不到"><a href="#这些命令一定要写在一起-否则nvm命令会找不到" aria-hidden="true" class="header-anchor">#</a> 这些命令一定要写在一起, 否则<code>nvm</code>命令会找不到</h1> <p>RUN curl https://raw.githubusercontent.com/creationix/nvm/v0.24.0/install.sh | bash <br>
+&amp;&amp; source $NVM_DIR/nvm.sh <br>
+&amp;&amp; nvm install v$NODE_VERSION <br>
+&amp;&amp; nvm use v$NODE_VERSION <br>
+&amp;&amp; nvm alias default v$NODE_VERSION</p> <p>ENV NODE_PATH $NVM_DIR/v$NODE_VERSION/lib/node_modules
+ENV PATH      $NVM_DIR/v$NODE_VERSION/bin:$PATH</p> <h1 id="设置工作目录"><a href="#设置工作目录" aria-hidden="true" class="header-anchor">#</a> 设置工作目录</h1> <p>WORKDIR $WORK_DIR</p> <h1 id="公开镜像的80端口"><a href="#公开镜像的80端口" aria-hidden="true" class="header-anchor">#</a> 公开镜像的80端口</h1> <p>EXPOSE 80</p> <p>CMD node</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;ul&gt;
+ 	&lt;li&gt;每条&lt;code&gt;RUN&lt;/code&gt;命令即是一层（Layer），Docker会将其缓存，对提高存储加快build速度很有用。&lt;/li&gt;
+ 	&lt;li&gt;每次&lt;code&gt;RUN&lt;/code&gt;命令，都被分配了一个单独的进程环境执行，因此一些环境变量等是不同的。&lt;/li&gt;
+ 	&lt;li&gt;&lt;code&gt;CMD&lt;/code&gt;命令相当于&lt;code&gt;docker run&lt;/code&gt;中执行的命令，&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;toc_1&quot;&gt;构建出image&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;$ docker build --force-rm -t ijse/nvm .
+$ docker images
+&lt;/code&gt;&lt;/pre&gt;
+构建成功后，会看到出现了一个&lt;em&gt;ijse/nvm&lt;/em&gt;的镜像。
+
+注意，build 的时候到如下一步时：
+&lt;pre&gt;&lt;code&gt;=&amp;gt; Close and reopen your terminal to start using nvm
+&lt;/code&gt;&lt;/pre&gt;
+不要动，这时候正在下载安装Node.js，可能会花费比较长时间，如果等得不耐烦，可以另开一个终端，用`docker ps`查到容器Id, 然后`docker attach &amp;lt;容器Id&amp;gt;`来查看进度。
+&lt;h4&gt;试着跑一下~&lt;/h4&gt;
+镜像构建成功后，就应该出现在`docker images`列表中了，用如下命令试着运行一下容器内的终端：
+&lt;pre&gt;&lt;code&gt;$ docker run -it --name test-nvm ijse/nvm
+&lt;/code&gt;&lt;/pre&gt;
+接着便进入了node的交互命令行下，可以执行&lt;code&gt;process.version&lt;/code&gt;查看容器中node.js的版本。
+&lt;h4 id=&quot;toc_2&quot;&gt;把代码装载&lt;/h4&gt;
+由于代码会经常更新，将它们打包进镜像中不太合适，一般通过目录挂载的方式，将代码目录放在宿主机上，这样可以分开管理。
+
+启动的时候添加&lt;code&gt;-v&lt;/code&gt;参数挂载代码目录：
+&lt;pre&gt;&lt;code&gt;$ docker run -it --name test-nvm -p 80 -v /myPorject:/workspace ijse/nvm bash
+&lt;/code&gt;&lt;/pre&gt;
+运行后即进入容器的bash下，此时可以继续执行开发相关的命令了，如&lt;code&gt;npm install &amp;amp;&amp;amp; npm start&lt;/code&gt;。
+
+由&lt;code&gt;-p 3000:80&lt;/code&gt;参数，将容器的80端口绑定到宿主机的3000端口上，于是我们可以访问&lt;code&gt;http://localhost:3000&lt;/code&gt;来访问容器的80端口服务了。
+&lt;blockquote&gt;&lt;strong&gt;注意：&lt;/strong&gt;
+&lt;ul&gt;
+ 	&lt;li&gt;如果是在Windows或Mac系统下，由于Docker是运行在虚拟机里的，所以访问时&lt;code&gt;localhost&lt;/code&gt;要换为虚拟机的ip地址。&lt;/li&gt;
+ 	&lt;li&gt;&lt;code&gt;npm install&lt;/code&gt;的时候，由于挂载机制，在Windows下可能需要添加&lt;code&gt;--no-bin-links&lt;/code&gt;参数&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&quot;toc_3&quot;&gt;全部代码&lt;/h4&gt;
+示例的代码放到了Github上： &lt;a href=&quot;https://github.com/ijse/nodejs-docker-image&quot;&gt;http://github.com/ijse/nodejs-docker-image&lt;/a&gt;
+&lt;h4 id=&quot;toc_4&quot;&gt;后记&lt;/h4&gt;
+这个示例很简单，而通常情况下我们的项目会更复杂些，不仅环境会有很多配置修改，还会需要其它服务，如MongoDB, Redis，甚至其它一些Web Services等。我们可以把这些服务都打包进一个镜像中，也可以分开。使用差不多的方式编写相应的Dockerfile，并配置环境即可。
+
+于是便可以看出Docker的方便之处：
+&lt;ol&gt;
+ 	&lt;li&gt;直接分发Dockerfile即可，其它开发者可以自己构建出镜像，并且与大家开发环境一致&lt;/li&gt;
+ 	&lt;li&gt;跨平台开发的方便，无论宿主机是什么平台，Docker都可以保证代码运行的环境与线上环境一致&lt;/li&gt;
+ 	&lt;li&gt;维护方便，只需要维护Dockerfile即可随时管理更新开发环境&lt;/li&gt;
+&lt;/ol&gt;
+Docker上手很快，一般使用的话，运行几条命令即可满足需求。简直是程序开发的福音。
+</code></pre></div></div> <!----></section> <footer class="footer"><!----></footer></div><div class="global-ui"><!----></div></div>
+    <script src="/assets/js/app.0bc387cd.js" defer></script><script src="/assets/js/3.176892a8.js" defer></script><script src="/assets/js/20.6ec898df.js" defer></script>
+  </body>
+</html>
