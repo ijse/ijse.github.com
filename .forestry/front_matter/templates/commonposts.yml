@@ -1,0 +1,28 @@
+---
+label: CommonPosts
+hide_body: false
+is_partial: false
+fields:
+- type: text
+  name: title
+  label: Title
+- type: tag_list
+  name: tags
+  label: tags
+- type: text
+  name: permalink
+  label: Permalink
+  description: path that not change forever
+  hidden: false
+  config:
+    required: false
+- type: text
+  label: Meta Title
+  name: metaTitle
+- type: textarea
+  config:
+    wysiwyg: false
+    schema:
+      format: markdown
+  label: Meta Description
+  name: description
