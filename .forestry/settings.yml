@@ -12,5 +12,7 @@ file_template: ":filename:"
 build:
   preview_command: vuepress build -d .vuepress/dist
   publish_command: vuepress build -d .vuepress/dist
+  publish_env:
+  - NODE_ENV=production
   preview_output_directory: ".vuepress/dist"
   output_directory: ".vuepress/dist"
