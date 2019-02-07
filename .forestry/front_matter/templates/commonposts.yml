@@ -24,3 +24,5 @@ fields:
   label: Meta Description
   name: description
 - type: field_group_list
+pages:
+- _posts/test-forestry.md
