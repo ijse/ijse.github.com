@@ -19,6 +19,6 @@ git commit -m 'deploy'
 git status
 
 # 如果发布到 https://<USERNAME>.github.io
-git push -f git@github.com:ijse/ijse.github.com.git master:test -v
+git push -f git@github.com:ijse/ijse.github.com.git master -v
 
 cd -

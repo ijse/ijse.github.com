@@ -1,5 +1,6 @@
 <template>
   <footer class="footer">
+    <BackToTop />
   </footer>
 </template>
 

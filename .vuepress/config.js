@@ -17,6 +17,7 @@ module.exports = {
   },
   plugins: [
     '@vuepress/medium-zoom',
+    '@vuepress/back-to-top',
     '@vuepress/blog',
     [ '@vssue/vuepress-plugin-vssue', {
       platform: 'github',
