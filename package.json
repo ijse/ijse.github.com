@@ -23,6 +23,7 @@
     "vuepress": "^1.0.0-alpha.36"
   },
   "devDependencies": {
-    "@vuepress/plugin-back-to-top": "^1.0.0-alpha.0"
+    "@vuepress/plugin-back-to-top": "^1.0.0-alpha.0",
+    "@vuepress/plugin-google-analytics": "^1.0.0-alpha.0"
   }
 }

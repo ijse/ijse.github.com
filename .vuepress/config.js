@@ -24,6 +24,9 @@ module.exports = {
       owner: 'ijse',
       repo: 'ijse.github.com',
       ...gitAuth
-    }]
+    }], [
+      '@vuepress/google-analytics', {
+        ga: 'UA-39566119-3'
+      }]
   ]
 }
