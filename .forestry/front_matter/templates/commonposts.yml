@@ -23,5 +23,3 @@ fields:
       format: markdown
   label: Meta Description
   name: description
-pages:
-- _posts/test-forestry.md
