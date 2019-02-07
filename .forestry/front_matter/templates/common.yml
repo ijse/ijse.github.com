@@ -7,3 +7,5 @@ fields:
   name: tags
   label: tags
   description: Posts Tags
+pages:
+- _posts/test-forestry.md
