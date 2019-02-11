@@ -7,9 +7,10 @@ sections:
 - type: heading
   label: heading
 - type: document
-  path: ".vuepress/config.js"
+  path: ijse.github.com/.vuepress/config.js
   label: sadmin
-  read_only: true
+  match: "**/*"
+  read_only: false
 - type: directory
   path: _posts
   label: Posts
