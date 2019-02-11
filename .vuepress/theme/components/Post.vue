@@ -21,7 +21,7 @@ export default {
   },
   computed: {
     hasComment () {
-      return this.$page.comment === false || process.env.NODE_ENV !== 'production'
+      return this.$page.comment !== false && process.env.NODE_ENV === 'production'
     },
     commentTitle () {
       return process.env.NODE_ENV === 'production' ? this.$page.title : 'Comments'
