@@ -10,6 +10,7 @@ sections:
   path: ".vuepress/config.js"
   label: sadmin
   match: "**/*"
+  read_only: true
 - type: directory
   path: _posts
   label: Posts
