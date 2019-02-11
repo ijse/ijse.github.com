@@ -7,7 +7,7 @@ sections:
 - type: heading
   label: heading
 - type: document
-  path: ijse.github.com/.vuepress/config.js
+  path: ".vuepress/config.js"
   label: sadmin
   match: "**/*"
   read_only: false
