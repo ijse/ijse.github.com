@@ -32,3 +32,5 @@ fields:
   description: disable to publish
   default: true
   hidden: false
+pages:
+- _posts/theme-colors.md
