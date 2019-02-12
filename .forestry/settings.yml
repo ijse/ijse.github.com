@@ -4,6 +4,9 @@ auto_deploy: true
 admin_path: ".vuepress/public/admin/"
 webhook_url: 
 sections:
+- type: document
+  path: ".vuepress/config.js"
+  label: sadmin
 - type: directory
   path: _posts
   label: Posts
