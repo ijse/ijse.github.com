@@ -22,6 +22,7 @@ build:
   publish_command: vuepress build -d .vuepress/dist
   preview_env:
   - NODE_ENV=forestry
+  - VUE_APP_ENV=forestry
   publish_env:
   - NODE_ENV=production
   preview_output_directory: ".vuepress/dist"
