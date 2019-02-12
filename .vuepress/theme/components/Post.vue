@@ -20,12 +20,12 @@ export default {
   components: {
     TimeAgo, TOC
   },
+  data: () => ({
+    hasComment: false
+  }),
   computed: {
-    hasComment () {
-      return this.$page.comment !== false && process.env.NODE_ENV === 'production'
-    },
     commentTitle () {
-      return process.env.NODE_ENV === 'production' ? this.$page.title : 'Comments'
+      return this.$page.title
     },
     listData () {
       if (!this.list.length) return []
@@ -41,6 +41,9 @@ export default {
       })
 
       return result
+    },
+    mounted () {
+      this.hasComment = this.$page.comment !== false && location.hostname === 'ijser.cn'
     }
   }
 }

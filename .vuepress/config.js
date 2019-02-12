@@ -1,11 +1,3 @@
-const gitAuth = process.env.NODE_ENV === 'production' ? {
-  clientId: 'de9cc415fb7353627426',
-  clientSecret: 'b2bb2d4b92da310f8a760c6b5e0ff8ecdc47bd85'
-} : {
-  clientId: '80aebf2cffe2db703910',
-  clientSecret: 'ef6ab6104b54e3869920dc7a1b6866d73cc349d8'
-}
-
 module.exports = {
   title: '<ijse blog />',
   dest: './dist',
@@ -23,7 +15,8 @@ module.exports = {
       platform: 'github',
       owner: 'ijse',
       repo: 'ijse.github.com',
-      ...gitAuth
+      clientId: 'de9cc415fb7353627426',
+      clientSecret: 'b2bb2d4b92da310f8a760c6b5e0ff8ecdc47bd85'
     }], [
       '@vuepress/google-analytics', {
         ga: 'UA-39566119-3'
