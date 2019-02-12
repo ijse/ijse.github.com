@@ -26,3 +26,9 @@ fields:
       format: markdown
   label: Meta Description
   name: description
+- type: boolean
+  name: draft
+  label: Draft
+  description: disable to publish
+  default: true
+  hidden: false
