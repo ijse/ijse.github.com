@@ -43,6 +43,8 @@ export default {
       // Order by publish date, desc
       return this.$site.pages
         .filter(item => item.path !== '/' && item.type === 'post')
+        .filter(item => item.frontmatter.published !== false)
+        .filter(item => item.frontmatter.draft !== true)
         .sort((a, b) => {
           return new Date(b.frontmatter.date || b.lastUpdated) - new Date(a.frontmatter.date || a.lastUpdated)
         })

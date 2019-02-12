@@ -14,10 +14,11 @@
 
 <script>
 import TimeAgo from './TimeAgo';
+import TOC from './TocItem';
 
 export default {
   components: {
-    TimeAgo
+    TimeAgo, TOC
   },
   computed: {
     hasComment () {
@@ -25,6 +26,21 @@ export default {
     },
     commentTitle () {
       return process.env.NODE_ENV === 'production' ? this.$page.title : 'Comments'
+    },
+    listData () {
+      if (!this.list.length) return []
+
+      const cur = this.list[0]
+      const result = [ cur ]
+      this.list.forEach(t => {
+        if (t.level > cur.level) {
+          cur.children = [].concat(cur.children, t)
+        } else {
+          result.push(t)
+        }
+      })
+
+      return result
     }
   }
 }
