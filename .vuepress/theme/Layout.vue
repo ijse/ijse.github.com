@@ -30,6 +30,10 @@ export default {
     isHome() {
       return this.$page.path === '/';
     }
+  },
+  mounted () {
+    const updateTime = new Date(this.$themeConfig.updateTime)
+    console.log('Update at ' + updateTime.toLocaleString())
   }
 };
 </script>

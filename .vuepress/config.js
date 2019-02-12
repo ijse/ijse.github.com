@@ -21,5 +21,8 @@ module.exports = {
       '@vuepress/google-analytics', {
         ga: 'UA-39566119-3'
       }]
-  ]
+  ],
+  themeConfig: {
+    updateTime: Date.now()
+  }
 }

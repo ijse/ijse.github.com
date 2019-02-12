@@ -10,7 +10,6 @@ tags:
 layout: post
 ---
 
-
 # Singleton 单例模式
 
     var bird = {
