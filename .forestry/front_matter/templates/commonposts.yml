@@ -33,4 +33,5 @@ fields:
   default: true
   hidden: false
 pages:
+- _posts/2019/2019-drive.md
 - _posts/theme-colors.md
