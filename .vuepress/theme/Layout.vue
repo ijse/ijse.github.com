@@ -33,7 +33,7 @@ export default {
   },
   mounted () {
     const updateTime = new Date(this.$themeConfig.updateTime)
-    console.log('Update at ' + updateTime.toLocaleString())
+    console.log('Build at ' + updateTime.toLocaleString())
   }
 };
 </script>
