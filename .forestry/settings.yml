@@ -23,6 +23,6 @@ build:
   preview_env:
   - APP_ENV=forestry
   publish_env:
-  - NODE_ENV=production
+  - APP_ENV=production
   preview_output_directory: ".vuepress/dist"
   output_directory: ".vuepress/dist"
