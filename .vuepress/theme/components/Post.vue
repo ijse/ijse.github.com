@@ -41,10 +41,10 @@ export default {
       })
 
       return result
-    },
-    mounted () {
-      this.hasComment = this.$page.comment !== false && location.hostname === 'ijser.cn'
     }
+  },
+  mounted () {
+    this.hasComment = this.$page.comment !== false && location.hostname === 'ijser.cn'
   }
 }
 </script>
