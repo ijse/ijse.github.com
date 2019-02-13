@@ -10,7 +10,7 @@ sections:
   read_only: false
 - type: directory
   path: _posts
-  label: Posts
+  label: 文章
   create: all
   match: "**/*"
 upload_dir: uploads
