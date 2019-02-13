@@ -7,7 +7,7 @@ fields:
   name: maintain_mode
   label: Maintain Mode
   description: Set site in maintain mode
-  hidden: true
-  default: true
+  hidden: false
+  default: false
 pages:
-- _posts/maintain-mode.md
+- _posts/settings.md
