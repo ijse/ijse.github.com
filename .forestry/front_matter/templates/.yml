@@ -8,3 +8,4 @@ fields:
   label: Maintain Mode
   description: Set site in maintain mode
   hidden: true
+  default: true
