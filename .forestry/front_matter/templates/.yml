@@ -1,0 +1,10 @@
+---
+label: 站点设置
+hide_body: true
+is_partial: false
+fields:
+- type: boolean
+  name: maintain_mode
+  label: Maintain Mode
+  description: Set site in maintain mode
+  hidden: true
