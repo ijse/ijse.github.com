@@ -9,5 +9,9 @@ fields:
   description: Set site in maintain mode
   hidden: false
   default: false
+- type: include
+  template: commonposts
+  label: PageSettings
+  name: pagesettings
 pages:
 - _posts/settings.md
