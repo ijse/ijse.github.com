@@ -5,9 +5,9 @@ admin_path: ".vuepress/public/admin/"
 webhook_url: 
 sections:
 - type: document
-  path: ".vuepress/config.js"
-  label: sadmin
-  read_only: true
+  path: _posts/settings.md
+  label: 网站设置
+  read_only: false
 - type: directory
   path: _posts
   label: Posts
