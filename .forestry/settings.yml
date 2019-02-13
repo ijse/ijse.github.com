@@ -7,7 +7,6 @@ sections:
 - type: document
   path: _posts/settings.md
   label: 网站设置
-  read_only: false
 - type: directory
   path: _posts
   label: 文章
