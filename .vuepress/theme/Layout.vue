@@ -28,7 +28,7 @@ export default {
   },
   computed: {
     isHome() {
-      return this.$page.path === '/';
+      return this.$page.path === '/' || this.$page.path.startsWith('/page');
     }
   },
   mounted () {

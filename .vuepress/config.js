@@ -11,6 +11,14 @@ module.exports = {
     '@vuepress/medium-zoom',
     '@vuepress/back-to-top',
     '@vuepress/blog',
+    [ '@vuepress/pagination', {
+      perPagePosts: 9,
+      postsFilter: data => {
+        return data.type === 'post' &&
+          data.frontmatter.published !== false &&
+          data.frontmatter.draft !== true
+      }
+    }],
     [ '@vssue/vuepress-plugin-vssue', {
       platform: 'github',
       owner: 'ijse',
@@ -20,7 +28,7 @@ module.exports = {
     }], [
       '@vuepress/google-analytics', {
         ga: 'UA-39566119-3'
-      }]
+    }]
   ],
   themeConfig: {
     updateTime: Date.now()

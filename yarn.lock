@@ -925,6 +925,11 @@
   dependencies:
     nprogress "^0.2.0"
 
+"@vuepress/plugin-pagination@^1.0.0-alpha.0":
+  version "1.0.0-alpha.0"
+  resolved "https://registry.yarnpkg.com/@vuepress/plugin-pagination/-/plugin-pagination-1.0.0-alpha.0.tgz#96f6e402a1147b34c2feaa930d913be5295e29c6"
+  integrity sha512-Q5TUkeZvbw1yoBad6griaHrECF9YCiHub7crKvWWp1r4rHXvuCfi5sfAME3B26fNImkq5akxoe5gChG5G4C8zA==
+
 "@vuepress/plugin-register-components@^1.0.0-alpha.36":
   version "1.0.0-alpha.36"
   resolved "https://registry.yarnpkg.com/@vuepress/plugin-register-components/-/plugin-register-components-1.0.0-alpha.36.tgz#365111e9947802878412b024cc4af084b982fdb8"
