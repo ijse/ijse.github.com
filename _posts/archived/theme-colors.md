@@ -16,7 +16,7 @@ description: ''
 
 <!--more-->
 
-[[toc]]
+\[\[toc\]\]
 
 ## 定义颜色类别
 
@@ -102,5 +102,5 @@ description: ''
 
 ## 进一步阅读
 
-* https://medium.com/@erikdkennedy/color-in-ui-design-a-practical-framework-e18cacd97f9e
-* http://www.jianshu.com/p/e662eb54c35e
+* [https://medium.com/@erikdkennedy/color-in-ui-design-a-practical-framework-e18cacd97f9e](https://medium.com/@erikdkennedy/color-in-ui-design-a-practical-framework-e18cacd97f9e)
+* [http://www.jianshu.com/p/e662eb54c35e](http://www.jianshu.com/p/e662eb54c35e)
