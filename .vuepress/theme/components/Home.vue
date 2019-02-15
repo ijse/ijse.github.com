@@ -47,8 +47,14 @@ export default {
 }
 </script>
 <style>
-  .pagination {
-    display: flex;
-    justify-content: space-between;
-  }
+.list-view {
+  margin-bottom: 20px;
+}
+.pagination {
+  display: flex;
+  justify-content: space-between;
+}
+.pagination a {
+  padding: 10px;
+}
 </style>

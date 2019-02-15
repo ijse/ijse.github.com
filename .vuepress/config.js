@@ -1,6 +1,7 @@
 module.exports = {
   title: '<ijse blog />',
   dest: './dist',
+  host: '0.0.0.0',
   markdown: {
     toc: {
       containerHeaderHtml: `<h1>目 录</h1>`,
