@@ -1,3 +1,0 @@
-# IJSE Blog
-
-hello world
